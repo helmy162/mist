@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect} from "react-router-dom";
 
 import {
   Home,
@@ -37,7 +37,7 @@ export default () => {
           <RequestForm />
           <Header data={state.data.menu} />
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/home" exact component={Home} />
             <Route path="/home-paralax" exact component={HomeParalax} />
             <Route path="/home-video" exact component={HomeVideo} />
             <Route path="/about-us" exact component={About} />
@@ -108,6 +108,7 @@ export default () => {
                 title="Blog list right sidebar"
               />
             </Route>
+            <Redirect to="/home" />
           </Switch>
           <Footer />
         </Fragment>
