@@ -21,6 +21,7 @@ export default ({ data = [] }) => {
       <Layout
         style={{
           background: "url(" + item.image + ") center/cover",
+          height:'100vh'
         }}
         col="1"
         mode="dark"

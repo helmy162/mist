@@ -26,7 +26,7 @@ export default () => {
           <div style={{margin:'0'}}>
             <ParallaxHeader />
           </div>
-          {/* <Team data={state.data.team} /> */}
+          
           {/* <Contacts /> */}
     </Fragment>
   );

@@ -4,7 +4,7 @@ import Team from "./Team/Team";
 import Pricing from "./Pricing/Pricing";
 import Services from "./Services/Services";
 import Services2 from "./Services2/Services2";
-import Services3 from "./Services3/Services3";
+import Teams from "./Teams/Teams";
 import Contacts from "./Contacts/Contacts";
 import Contacts2 from "./Contacts2/Contacts2";
 import Facts from "./Facts/Facts";
@@ -32,7 +32,7 @@ export {
   Pricing,
   Services,
   Services2,
-  Services3,
+  Teams,
   Contacts,
   Contacts2,
   Facts,

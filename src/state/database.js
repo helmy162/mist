@@ -1,8 +1,9 @@
 import Mock from "./mock";
+import icon from "../assets/logo.png";
 
 const photo = require("../assets/placeholders/photo.jpg");
 const logotype = require("../assets/placeholders/logotype.png");
-const icon = require("../assets/placeholders/icon.svg");
+// const icon = require("../assets/placeholders/icon.svg");
 
 const database = {
   fast_links: [
@@ -122,112 +123,31 @@ const database = {
   ],
   members: [
     {
-      about:
-        "Professionally deploy revolutionary information rather than multimedia based channels. Continually leverage existing B2B value vis-a-vis magnetic best practices. Dynamically syndicate alternative e-services without leveraged methodologies. Intrinsicly envisioneer cutting-edge relationships for pandemic meta-services.",
       id: 0,
-      img: photo,
-      job: "Designer",
-      name: "Martin Tompson",
-      skills: [
-        "Front-End: 90",
-        "Wordpress: 80",
-        "React Native: 70",
-        "UI / UX Design: 80",
-      ],
-      stats: [
-        {
-          icon: "las la-clock",
-          text: "Hours per week",
-          title: "40+",
-        },
-        {
-          icon: "las la-briefcase",
-          text: "Projects completed",
-          title: "170",
-        },
-        {
-          icon: "las la-user-check",
-          text: "Satisfied clients",
-          title: "74",
-        },
-        {
-          icon: "las la-trophy",
-          text: "Competition winned",
-          title: "140",
-        },
-      ],
+      user: 'Billygates',
+      officer: true,
+      discord: 'Billygates#1234',
+      about: '',
     },
     {
-      about:
-        "Professionally deploy revolutionary information rather than multimedia based channels. Continually leverage existing B2B value vis-a-vis magnetic best practices. Dynamically syndicate alternative e-services without leveraged methodologies. Intrinsicly envisioneer cutting-edge relationships for pandemic meta-services.",
       id: 1,
-      img: photo,
-      job: "Developer",
-      name: "Juliana Redford",
-      skills: [
-        "Front-End: 90",
-        "Wordpress: 80",
-        "React Native: 70",
-        "UI / UX Design: 80",
-      ],
-      stats: [
-        {
-          icon: "las la-clock",
-          text: "Hours per week",
-          title: "40+",
-        },
-        {
-          icon: "las la-briefcase",
-          text: "Projects completed",
-          title: "170",
-        },
-        {
-          icon: "las la-user-check",
-          text: "Satisfied clients",
-          title: "74",
-        },
-        {
-          icon: "las la-trophy",
-          text: "Competition winned",
-          title: "140",
-        },
-      ],
+      user: 'Äni',
+      officer: false,
     },
     {
-      about:
-        "Professionally deploy revolutionary information rather than multimedia based channels. Continually leverage existing B2B value vis-a-vis magnetic best practices. Dynamically syndicate alternative e-services without leveraged methodologies. Intrinsicly envisioneer cutting-edge relationships for pandemic meta-services.",
       id: 2,
-      img: photo,
-      job: "CEO, Director",
-      name: "Robert Ferguson",
-      skills: [
-        "Front-End: 90",
-        "Wordpress: 80",
-        "React Native: 70",
-        "UI / UX Design: 80",
-      ],
-      stats: [
-        {
-          icon: "las la-clock",
-          text: "Hours per week",
-          title: "40+",
-        },
-        {
-          icon: "las la-briefcase",
-          text: "Projects completed",
-          title: "170",
-        },
-        {
-          icon: "las la-user-check",
-          text: "Satisfied clients",
-          title: "74",
-        },
-        {
-          icon: "las la-trophy",
-          text: "Competition winned",
-          title: "140",
-        },
-      ],
+      user: 'Zensy',
+      officer: false,
+    },
+    {
+      id: 3,
+      user: 'Ducksyan',
+      officer: false,
+    },
+    {
+      id: 3,
+      user: 'Mysticplay',
+      officer: false,
     },
   ],
 };

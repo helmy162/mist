@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./Services3.module.scss";
 import Layout from "../../layouts/Layout/Layout";
 import THEME from "../../../state/theme";
-
 import { Button } from "../../elements";
+import './Teams.css'
 
 export default ({ data = [] }) => {
   const ref = useRef(null);
@@ -23,28 +22,28 @@ export default ({ data = [] }) => {
     .map((item, index) => (
       <div
         key={index}
-        className={styles.wrapper}
+        className='wrapper'
         style={{
           borderColor: THEME.color,
         }}
       >
-        <div className={styles.extra} style={{ background: THEME.color }}>
+        <div className='extra' style={{ background: THEME.color }}>
         </div>
 
-        <div className={styles.card}>
-          <div className={styles.icon}>
+        <div className='card'>
+          <div className='icon'>
             <img src={item.icon} alt="card_icon" />
-          </div>
-
-          <h3
+            <h3
             style={{
               color: THEME.color,
             }}
           >
             {item.title}
           </h3>
+          </div>
+
           <p>{item.text.replace(/^(.{60}[^\s]*).*/, "$1")}</p>
-          <div className={styles.button}>
+          <div className='button'>
             <Button
               to={"/teams" + item.link}
               type="solid-white-tb"
@@ -61,17 +60,17 @@ export default ({ data = [] }) => {
 
   listStatistic.unshift(
     <div
-      key={Math.random()}
-      className={styles.list_header}
+      key={-1}
+      className="list_header"
       style={{ background: THEME.color }}
     >
-      <div className={styles.list_front}>
+      <div className={'list_front'}>
         <h3>
           Here is what you <b>should know</b>
         </h3>
         <i className="las la-long-arrow-alt-down" />
       </div>
-      <div className={styles.list_back}>
+      <div className='list_back'>
         <p>
         lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
@@ -80,14 +79,14 @@ export default ({ data = [] }) => {
   );
 
   return (
-    <div className={styles.stat_area}>
+    <div className='stat_area'>
       <Layout
         style={{
           // transform: "translateY(-50%)",
         }}
         col="1"
       >
-        <div className={styles.statistic} ref={ref}>
+        <div className='statistic' ref={ref}>
           {listStatistic}
         </div>
       </Layout>
