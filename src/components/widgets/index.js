@@ -4,12 +4,14 @@ import Team from "./Team/Team";
 import Pricing from "./Pricing/Pricing";
 import Services from "./Services/Services";
 import Services2 from "./Services2/Services2";
-import Teams from "./Teams/Teams";
+import HomeTeams from "./HomeTeams/HomeTeams";
 import Contacts from "./Contacts/Contacts";
 import Contacts2 from "./Contacts2/Contacts2";
 import Facts from "./Facts/Facts";
 import Facts2 from "./Facts2/Facts2";
 import Slider from "./Slider/Slider";
+import Slider2 from "./Slider2/Slider2";
+import Slider3 from "./Slider3/Slider3";
 import Reviews from "./Reviews/Reviews";
 import Header from "./Header/Header";
 import ParallaxHeader from "./ParallaxHeader/ParallaxHeader";
@@ -32,12 +34,14 @@ export {
   Pricing,
   Services,
   Services2,
-  Teams,
+  HomeTeams,
   Contacts,
   Contacts2,
   Facts,
   Facts2,
   Slider,
+  Slider2,
+  Slider3,
   Reviews,
   Header,
   ParallaxHeader,

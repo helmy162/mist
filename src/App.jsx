@@ -13,12 +13,14 @@ import {
   PostSingle,
   ServiceSingle,
   MemberCard,
-  PortfolioSingle
+  PortfolioSingle,
+  Teams
 } from "./components/pages";
 import { Header, Sidebar, Footer } from "./components/layouts";
 import { ModalForm, RequestForm } from "./components/ui";
 import { Spinner } from "./components/elements";
 import { useCustomState } from "./state/state";
+import { HomeTeams } from "./components/widgets";
 
 export default () => {
   const [state, actions] = useCustomState();
@@ -45,69 +47,13 @@ export default () => {
             <Route path="/portfolio" exact component={Portfolio} />
             <Route path="/contacts" exact component={Contacts} />
             <Route path="/blog/:post_id" exact component={PostSingle} />
-            <Route
-              path="/services/:service_id"
-              exact
-              component={ServiceSingle}
-            />
+            <Route path="/teams/" exact component={Teams} />
             <Route path="/team/:member_id" exact component={MemberCard} />
             <Route
               path="/portfolio/:project_id"
               exact
               component={PortfolioSingle}
             />
-
-            <Route path="/blog/cats/:category" exact>
-              <Blog sidebar="left" layout="grid" />
-            </Route>
-
-            <Route path="/blog/user/:author" exact>
-              <Blog sidebar="left" layout="grid" />
-            </Route>
-
-            <Route path="/blog/date/:posting_date" exact>
-              <Blog sidebar="left" layout="grid" />
-            </Route>
-
-            <Route path="/blog/search/:query" exact>
-              <Blog sidebar="left" layout="grid" />
-            </Route>
-
-            <Route path="/blog-grid-left-sidebar" exact>
-              <Blog
-                sidebar="left"
-                layout="grid"
-                title="Blog grid left sidebar"
-              />
-            </Route>
-
-            <Route path="/blog-grid-right-sidebar" exact>
-              <Blog
-                sidebar="right"
-                layout="grid"
-                title="Blog grid right sidebar"
-              />
-            </Route>
-
-            <Route path="/blog-grid-without-sidebar" exact>
-              <Blog sidebar="none" layout="grid" title="Blog grid no sidebar" />
-            </Route>
-
-            <Route path="/blog-list-left-sidebar" exact>
-              <Blog
-                sidebar="left"
-                layout="list"
-                title="Blog list left sidebar"
-              />
-            </Route>
-
-            <Route path="/blog-list-right-sidebar" exact>
-              <Blog
-                sidebar="right"
-                layout="list"
-                title="Blog list right sidebar"
-              />
-            </Route>
             <Redirect to="/home" />
           </Switch>
           <Footer />

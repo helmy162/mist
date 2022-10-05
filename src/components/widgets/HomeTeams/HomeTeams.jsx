@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Layout from "../../layouts/Layout/Layout";
 import THEME from "../../../state/theme";
 import { Button } from "../../elements";
-import './Teams.css'
+import './HomeTeams.css'
 
 export default ({ data = [] }) => {
   const ref = useRef(null);
@@ -42,7 +42,7 @@ export default ({ data = [] }) => {
           </h3>
           </div>
 
-          <p>{item.text.replace(/^(.{60}[^\s]*).*/, "$1")}</p>
+          <p>{item.description.replace(/^(.{60}[^\s]*).*/, "$1")}</p>
           <div className='button'>
             <Button
               to={"/teams" + item.link}

@@ -58,6 +58,16 @@ const database = {
       url: "/",
     },
     {
+      children: [
+        {
+          name: "Team Wind Bridge",
+          url: "/teams/twb",
+        },
+        {
+          name: "Video Background",
+          url: "/home-video",
+        },
+      ],
       name: "Teams",
       url: "/teams",
     },
@@ -94,30 +104,93 @@ const database = {
       user_id: "1",
     },
   ],
-  teams: [
+  achievements: [
     {
-      full:
-        "Continually incubate standards compliant customer service rather than professional initiatives. Intrinsicly whiteboard web-enabled potentialities via team building supply chains. Collaboratively integrate granular innovation and performance based intellectual capital. Compellingly redefine multimedia based paradigms for high-quality portals. Quickly build out-of-the-box e-tailers for customer directed opportunities.",
-      icon: icon,
-      id: 0,
-      img: photo,
-      subtitle: "Handling of construction materials",
-      link: "/twb",
-      text:
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      title: "Team Wind Bridge",
+      category_id: 1,
+      featured: true,
+      id: "raid_1",
+      image: 'https://i.ibb.co/QKQG3TR/sepulcher-of-the-first-ones-small.jpg',
+      title: "Sepulcher of the First Ones",
+      progress: '10/10M',
+      user_id: "1",
     },
     {
-      featured: "yes",
-      full:
-        "Continually incubate standards compliant customer service rather than professional initiatives. Intrinsicly whiteboard web-enabled potentialities via team building supply chains. Collaboratively integrate granular innovation and performance based intellectual capital. Compellingly redefine multimedia based paradigms for high-quality portals. Quickly build out-of-the-box e-tailers for customer directed opportunities.",
-      icon: icon,
+      category_id: 2,
+      featured: true,
+      id: "raid_2",
+      image: 'https://i.ibb.co/sjdq3mm/sanctum-of-domination-small.jpg',
+      title: "Sanctum of Domination",
+      progress: '10/10M',
+      user_id: "2",
+    },
+    {
+      category_id: 3,
+      featured: true,
+      id: "raid_3",
+      image: 'https://i.ibb.co/k6wrsrQ/castle-nathria.jpg',
+      title: "Castle Nathria",
+      progress: '10/10M',
+      user_id: "3",
+    },
+  ],
+  castles: [
+    {
+      name: "Castle Nathria",
+      icon: 'https://i.ibb.co/GsdyVtt/sire-Denathrius-Big.png',
+      bg: 'https://wow.zamimg.com/uploads/guide/seo/10246.jpg?1588896674',
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
+    },
+    {
+      name: "Fated Castle Nathria",
+      icon: 'https://i.ibb.co/MMMXL1Z/sludgefist-Big.png',
+      bg: 'https://wow.zamimg.com/uploads/guide/seo/10246.jpg?1588896674',
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
+    },
+    {
+      name: "Sanctum of Domination ",
+      icon: 'https://i.ibb.co/fDzyrLk/pngwing-com-1.png',
+      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
+    },
+    {
+      name: "Fated Sanctum of Domination ",
+      icon: 'https://i.ibb.co/fDzyrLk/pngwing-com-1.png',
+      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore",
+    },
+    {
+      name: "Sepulcher of the First Ones",
+      icon: 'https://i.ibb.co/XFgMzrx/zovaal-the-jailer-heroic-kill1644882949-picture-item-small.png',
+      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
+    },
+    {
+      name: "Fated Sepulcher of the First Ones",
+      icon: 'https://i.ibb.co/XFgMzrx/zovaal-the-jailer-heroic-kill1644882949-picture-item-small.png',
+      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore",
+    },
+  ],
+  teams: [
+    {
+      description:
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
+      icon: 'https://i.ibb.co/GsdyVtt/sire-Denathrius-Big.png',
+      id: 0,
+      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      subtitle: "Handling of construction materials",
+      link: "/twb",
+      title: "Team Wind Bridge",
+      zone: "Sepulcher of the First Ones"
+    },
+    {
+      description:
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
+      icon: 'https://www.pngall.com/wp-content/uploads/11/World-Of-Warcraft-PNG-HD-Image.png',
       id: 1,
-      img: photo,
+      bg: 'https://wallpapercave.com/wp/wp10407651.jpg',
       subtitle: "Making planning for ptoject",
       link: "/2nmt",
-      text:
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       title: "2-Night Mythic Team",
     },
   ],
