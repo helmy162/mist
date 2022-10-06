@@ -6,7 +6,7 @@
   align-items: center;
   text-align: center;
   height: 100vh;
-  transform: translateY(-60px);
+  // transform: translateY(-60px);
 
   & i {
     font-size: 3rem;
@@ -57,7 +57,7 @@
     max-width: 400px;
 
     & h1 {
-      font-size: 3rem;
+      font-size: max(5vw, 26px);
       font-weight: 300;
     }
 

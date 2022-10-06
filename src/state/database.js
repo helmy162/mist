@@ -12,12 +12,12 @@ const database = {
       url: "/home",
     },
     {
-      title: "About",
-      url: "#about",
-    },
-    {
       title: "Teams",
       url: "/teams",
+    },
+    {
+      title: "Apply",
+      url: "/apply",
     },
     {
       title: "Become a sponsor",
@@ -82,9 +82,6 @@ const database = {
       featured: true,
       id: "post_0",
       image: 'https://i.ibb.co/4YNK3hh/cinematic-render-2.jpg',
-      posting_date: "Feb 14, 2020",
-      quote:
-        "Enthusiastically generate multidisciplinary benefits rather than bricks-and-clicks action items. ",
       short: "WE WANT RAIDERS WHO WANT TO IMPROVE THEIR PLAY, IMPROVE THE RAID TEAM, AND IMPROVE THE CULTURE WE FOSTER HERE.",
       title: "Mist is a cutting-edge guild focused on us-250 progression.",
       user_id: "2",
@@ -92,16 +89,87 @@ const database = {
     {
       category_id: 2,
       featured: true,
-      full:
-        "Dynamically enhance distributed scenarios rather than extensive metrics. Compellingly supply leveraged leadership and standardized web-readiness. Phosfluorescently predominate competitive platforms after unique potentialities. Seamlessly engineer optimal niches through turnkey communities. Objectively grow emerging alignments before sticky synergy. <p> Enthusiastically e-enable inexpensive expertise for low-risk high-yield e-commerce. Monotonectally facilitate cutting-edge communities vis-a-vis process-centric systems. Competently utilize granular infomediaries with team building e-commerce. Seamlessly enable market positioning action items through optimal collaboration and idea-sharing. Dramatically revolutionize cross functional opportunities before multifunctional interfaces.<p> Uniquely pontificate e-business materials rather than seamless benefits. Completely coordinate client-centric channels for 24/365 communities. Quickly facilitate covalent interfaces after prospective vortals. Monotonectally envisioneer competitive collaboration and idea-sharing and plug-and-play systems. Energistically syndicate leading-edge initiatives vis-a-vis wireless materials. Completely initiate unique benefits via corporate core competencies. Holisticly maximize highly efficient channels without world-class partnerships. <p>Phosfluorescently brand stand-alone deliverables via premier infrastructures. Enthusiastically visualize scalable applications via market positioning web services. Phosfluorescently redefine high standards in models before emerging leadership. Energistically morph user-centric mindshare with 24/7 niches. Uniquely strategize resource maximizing outsourcing without cross functional ROI. Globally productize process-centric solutions rather than focused sources. Monotonectally repurpose bleeding-edge ideas via extensible human capital. <p>Collaboratively orchestrate covalent platforms rather than just in time infrastructures. Collaboratively expedite plug-and-play web services without professional ideas. Synergistically provide access to open-source markets with covalent methodologies. Dynamically develop multimedia based meta-services vis-a-vis an expanded array of infrastructures. Professionally supply ubiquitous initiatives whereas cross-platform users. Phosfluorescently restore superior solutions with error-free customer service.",
       id: "post_1",
       image: 'https://wallpapercave.com/wp/wp10407651.jpg',
-      posting_date: "Feb 07, 2020",
-      quote:
-        "dolor dolores doloribus ducimus fuga iusto magni maiores minus nam numquam officiis provident quasi",
       short: "WE WANT RAIDERS WHO WANT TO IMPROVE THEIR PLAY, IMPROVE THE RAID TEAM, AND IMPROVE THE CULTURE WE FOSTER HERE.",
       title: "OUR GUILD PRIDES ITSELF ON ALWAYS IMPROVING. ",
       user_id: "1",
+    },
+  ],
+  requirements: [
+    {
+      featured: true,
+      image: 'https://i.ibb.co/4YNK3hh/cinematic-render-2.jpg',
+      title: "General Requirements",
+      data: [
+        {
+          title: "AGE +18",
+        },
+        {
+          title: "WORKING MICROPHONE",
+        },
+        {
+          title: " ABILITY TO SPEAK DURING RAIDS",
+        },
+        {
+          title: "MINIMUM 85% RAID ATTENDANCE",
+        },
+        {
+          title: "STABLE INTERNET CONNECTION AND RELIABLE COMPUTER",
+        },
+        {
+          title: "UNDERSTANDING THAT WE CARRY A 25-MAN ROSTER, AND YOU WILL SIT AT SOME POINT",
+        },
+      ]
+    },
+    {
+      featured: true,
+      image: 'https://wallpapercave.com/wp/wp10407651.jpg',
+      title: "In-Game Requirements",
+      data: [
+        {
+          title: "4 MYTHIC PLUS KEYS PER WEEK (UNTIL VERIFIABLE BIS)",
+        },
+        {
+          title: "BRING ENOUGH AUGMENT RUNES AND POTS FOR EVERY PULL OF THE NIGHT",
+        },
+        {
+          title: "PULLS BEGIN PROMPTLY AT 10 PM EST (Team Wind Bridge)",
+        },
+        {
+          title: "PULLS BEGIN PROMPTLY AT 11 PM EST (TEAM Clear Comms)",
+        },
+        {
+          title: "BE ONLINE 15 MINUTES BEFORE RAID TO CLEAR RAID TRASH",
+        },
+      ]
+    },
+    {
+      featured: true,
+      image: 'https://wallpapercave.com/wp/wp10407651.jpg',
+      title: "MANDATORY ADDONS",
+      data: [
+        {
+          title: "METHOD RAID TOOLS",
+          link: 'https://www.curseforge.com/wow/addons/method-raid-tools'
+        },
+        {
+          title: "WEAKAURAS",
+          link: 'https://www.curseforge.com/wow/addons/weakauras-2'
+        },
+        {
+          title: "DBM",
+          link: 'https://www.curseforge.com/wow/addons/deadly-boss-mods'
+        },
+        {
+          title: "BIGWIGS",
+          link: 'https://www.curseforge.com/wow/addons/big-wigs'
+        },
+        {
+          title: "RC LOOT COUNCIL",
+          link: 'https://www.curseforge.com/wow/addons/rclootcouncil'
+        },
+      ]
     },
   ],
   achievements: [
@@ -136,7 +204,7 @@ const database = {
   castles: [
     {
       name: "Castle Nathria",
-      icon: 'https://i.ibb.co/GsdyVtt/sire-Denathrius-Big.png',
+      icon: '',
       bg: 'https://wow.zamimg.com/uploads/guide/seo/10246.jpg?1588896674',
       description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
     },
@@ -161,13 +229,13 @@ const database = {
     {
       name: "Sepulcher of the First Ones",
       icon: 'https://i.ibb.co/XFgMzrx/zovaal-the-jailer-heroic-kill1644882949-picture-item-small.png',
-      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      bg: 'https://i.ibb.co/r00qjBS/sepulcher-of-the-first-ones-social-h.jpg',
       description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
     },
     {
       name: "Fated Sepulcher of the First Ones",
       icon: 'https://i.ibb.co/XFgMzrx/zovaal-the-jailer-heroic-kill1644882949-picture-item-small.png',
-      bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
+      bg: 'https://i.ibb.co/r00qjBS/sepulcher-of-the-first-ones-social-h.jpg',
       description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore",
     },
   ],

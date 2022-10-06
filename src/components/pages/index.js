@@ -11,6 +11,7 @@ import ServiceSingle from "./ServiceSingle/ServiceSingle";
 import MemberCard from "./MemberCard/MemberCard";
 import PortfolioSingle from "./PortfolioSingle/PortfolioSingle";
 import Teams from "./Teams/Teams";
+import Apply from "./Apply/Apply";
 
 export {
   Home,
@@ -26,4 +27,5 @@ export {
   MemberCard,
   PortfolioSingle,
   Teams,
+  Apply
 };

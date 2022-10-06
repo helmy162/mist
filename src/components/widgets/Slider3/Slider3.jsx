@@ -17,13 +17,12 @@ export default ({ data = [] }) => {
   };
 
   const slideList = data.map((item, index) => (
-    <article key={index} >
+    <article key={index}>
       <Layout
         style={{
           background: "url(" + item.image + ") center/cover",
-          height:'80vh',
-          borderRadius:'50%',
-          margin:'0 50px'
+          minHeight:'100vh',
+          height:'fit-content'
         }}
         col="1"
         mode="dark"
@@ -33,10 +32,29 @@ export default ({ data = [] }) => {
             className={"las la-long-arrow-alt-left"}
             onClick={() => sliderRef.slickPrev()}
           />
-
-          <div className={styles.intro}>
-            <h1 style={{fontSize:'max(2.5vw, 36px)'}}>{item.title}</h1>
-            <h2>{item.progress}</h2>
+          <div className={styles.intro} style={{maxWidth:'unset'}}>
+            <h1>{item.title}</h1>
+            <div className="card2 user" style={{height:'fit-content', width:'100%'}}>
+            <span className="inner-card-backface" style={{background:'transparent'}}>
+              <span className="flip-inner-card">
+              </span>
+            </span>
+            <span className="inner-card" style={{background:'transparent', width:'100%'}}>
+              <div className="intro" style={{maxWidth:'unset', padding:'100px', borderRadius:'25px'}}>
+                <div className="goals" style={{justifyContent:'center'}}>
+                  <ul>
+                    {item.data.map((item2, index2) => (
+                      index===2?
+                      <li key={index2} style={{marginBottom:'20px'}}><a href={item2.link}>{item2.title}</a></li>
+                      :
+                      <li key={index2} style={{marginBottom:'20px'}}> {item2.title} </li>
+                    ))}
+                  </ul> 
+                </div>
+              </div>
+              <span className="glare"></span>
+            </span>
+            </div>
           </div>
           <i
             className={"las la-long-arrow-alt-right"}

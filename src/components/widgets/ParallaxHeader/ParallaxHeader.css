@@ -101,10 +101,10 @@ section#about, section#highlights{
   }
 
 
-.intro a {
+/* .intro a {
   transform: translateY(50%);
   align-self: flex-end;
-}
+} */
 
 
 .form {

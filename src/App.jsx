@@ -14,7 +14,8 @@ import {
   ServiceSingle,
   MemberCard,
   PortfolioSingle,
-  Teams
+  Teams,
+  Apply
 } from "./components/pages";
 import { Header, Sidebar, Footer } from "./components/layouts";
 import { ModalForm, RequestForm } from "./components/ui";
@@ -43,6 +44,7 @@ export default () => {
             <Route path="/home-paralax" exact component={HomeParalax} />
             <Route path="/home-video" exact component={HomeVideo} />
             <Route path="/about-us" exact component={About} />
+            <Route path="/apply" exact component={Apply} />
             <Route path="/services" exact component={Services} />
             <Route path="/portfolio" exact component={Portfolio} />
             <Route path="/contacts" exact component={Contacts} />
