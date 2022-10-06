@@ -38,21 +38,8 @@ export default () => {
     return () => clearInterval(interval);
   }, []);
   
-  //teams animation
-  const teamsSection = useRef();
-  useEffect(() => {
-    gsap.to(teamsSection.current, {
-      xPercent: -150,
-      scrollTrigger: {
-        trigger: teamsSection.current,
-        start: "bottom 90%",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  }, []);
-  // get window dimensions
   
+  // get window dimensions
   function getWindowDimensions() { const { innerWidth: width, innerHeight: height } = window;return {width,height};}
   function useWindowDimensions() {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
@@ -60,6 +47,16 @@ export default () => {
     return windowDimensions;
   }
   const { height, width } = useWindowDimensions();
+
+  //get mouse position
+  const [mousePosition,setMousePosition] = React.useState({ x: null, y: null });
+  useEffect(() => {const updateMousePosition = ev => {setMousePosition({ x: ev.clientX, y: ev.clientY });};window.addEventListener('mousemove', updateMousePosition);return () => {window.removeEventListener('mousemove', updateMousePosition);};}, []);
+  const mouseX = mousePosition.x; const mouseY = mousePosition.y;
+
+  //teams animation
+  const teamsSection = useRef();
+  useEffect(() => {gsap.to(teamsSection.current, {x: -mouseX/20, y: -mouseY/20,});}, [mouseX, mouseY]);
+
   return (
     <div
       className="parallax"

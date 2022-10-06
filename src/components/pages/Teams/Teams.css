@@ -3,6 +3,39 @@
   box-sizing: border-box;
 }
 
+body{
+  overflow: hidden;
+}
+.goals{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goals ul li {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 0.75rem;
+}
+.goals img{
+  width: min(25vw, 150px);
+}
+
+@media screen and (max-width: 1400px){
+  .goals{
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 768px){
+  .intro{
+    padding: 20px !important;
+    font-size: 12px;
+  }
+  .intro h1{
+    font-size: 24px !important;
+  }
+}
+
 .castle-cards-wrapper{
   display: contents;
   gap: 20px;
@@ -23,14 +56,16 @@
 
 .clash-card {
   background: white;
-  width: 350px;
+  /* width: 350px; */
   display: inline-block;
-  margin: 1.5rem;
+  /* margin: 1.5rem; */
   border-radius: 19px;
   position: relative;
   text-align: center;
-  box-shadow: -1px 15px 30px -12px #62C8E8;
+  box-shadow: 0px 10px 30px -12px #A330C9;
   z-index: 9999;
+  max-width: min(80vw, 400px);
+  min-width: min(75vw, 350px);
 }
 
 .clash-card__image {
@@ -45,14 +80,17 @@
 }
 
 .clash-card__image--barbarian {
-  background-image: url(https://i.ibb.co/wCR7NmS/logo.png) , linear-gradient(to right, rgba(98, 200, 232, 0.5) , rgba(34, 50, 97, 0.3)) ;
+  /* background-image: url(https://wow.zamimg.com/uploads/guide/seo/10246.jpg?1588896674) ; */
   background-repeat: no-repeat;
-  background-size: cover cover;
-  background-position: center;
+  background-size: cover ;
+  background-position: center, center;
+  filter: grayscale(50%) ;
+  
 }
 .clash-card__image--barbarian img{
   backdrop-filter: blur(5px);
   max-width: 80%;
+  display: none;
 }
 
 .clash-card__image--archer {
@@ -97,13 +135,13 @@
 
 .clash-card__level {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 3px;
 }
 
 .clash-card__level--barbarian {
-  color: #62C8E8;
+  color: #A330C9;
 }
 
 .clash-card__level--archer {

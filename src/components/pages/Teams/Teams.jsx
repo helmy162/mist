@@ -25,13 +25,20 @@ export default ({ data = [] }) => {
   const state = useCustomState()[0];
 
   const axios = require('axios').default;
-  const [mistData, fetchData] = useState([]);
+  const [mistRank, fetchData] = useState([]);
+  const [mistProgression, fetchData2] = useState([]);
   const [nathria, setNathria] = useState([]);
+  const [nathria2, setNathria2] = useState([]);
   const [fatednathria, setFatedNathria] = useState([]);
+  const [fatednathria2, setFatedNathria2] = useState([]);
   const [sanctum, setSanctum] = useState([]);
+  const [sanctum2, setSanctum2] = useState([]);
   const [fatedsanctum, setFatedSanctum] = useState([]);
+  const [fatedsanctum2, setFatedSanctum2] = useState([]);
   const [sepulcher, setsepulcher] = useState([]);
+  const [sepulcher2, setsepulcher2] = useState([]);
   const [fatedsepulcher, setFatedSepulcher] = useState([]);
+  const [fatedsepulcher2, setFatedSepulcher2] = useState([]);
   const [x, setX] = useState('');
 
 
@@ -122,7 +129,16 @@ document.querySelectorAll('.card2').forEach(function(item) {
           setsepulcher(response.data.raid_rankings["sepulcher-of-the-first-ones"].mythic);
           setFatedSepulcher(response.data.raid_rankings["fated-sepulcher-of-the-first-ones"].mythic);
         });
-    console.log(mistData.raid_rankings)
+    axios.get('https://raider.io/api/v1/guilds/profile?region=us&realm=illidan&name=mist&fields=raid_progression')
+      .then(response => {
+        fetchData2(response.data);
+        setNathria2(response.data.raid_progression["castle-nathria"].summary);
+        setFatedNathria2(response.data.raid_progression["fated-castle-nathria"].summary);
+        setSanctum2(response.data.raid_progression["sanctum-of-domination"].summary);
+        setFatedSanctum2(response.data.raid_progression["fated-sanctum-of-domination"].summary);
+        setsepulcher2(response.data.raid_progression["sepulcher-of-the-first-ones"].summary);
+        setFatedSepulcher2(response.data.raid_progression["fated-sepulcher-of-the-first-ones"].summary);
+      });
 // empty dependency array means this effect will only run once (like componentDidMount in classes)
 }, []);
 
@@ -131,14 +147,8 @@ document.querySelectorAll('.card2').forEach(function(item) {
 
   return (
     <Fragment>
-          <Slider2 data={state.data.castles}>
-                <CastleCard name={item[0].name} bg={item[0].bg} icon={item[0].icon} description={item[0].description} world={nathria.world} region={nathria.region} realm={nathria.realm}/>
-                <CastleCard name={item[1].name} bg={item[1].bg} icon={item[1].icon} description={item[1].description} world={fatednathria.world} region={fatednathria.region} realm={fatednathria.realm}/>
-                <CastleCard name={item[2].name} bg={item[2].bg} icon={item[2].icon} description={item[2].description} world={sanctum.world} region={sanctum.region} realm={sanctum.realm}/>
-                <CastleCard name={item[3].name} bg={item[3].bg} icon={item[3].icon} description={item[3].description} world={fatedsanctum.world} region={fatedsanctum.region} realm={fatedsanctum.realm}/>
-                <CastleCard name={item[4].name} bg={item[4].bg} icon={item[4].icon} description={item[4].description} world={sepulcher.world} region={sepulcher.region} realm={sepulcher.realm}/>
-                <CastleCard name={item[5].name} bg={item[5].bg} icon={item[5].icon} description={item[5].description} world={fatedsepulcher.world} region={fatedsepulcher.region} realm={fatedsepulcher.realm}/>
-          </Slider2>
+          <Slider data={state.data.posts}/>
+
           {/* <Team data={state.data.members} /> */}
           <div
             className="parallax"
@@ -148,18 +158,30 @@ document.querySelectorAll('.card2').forEach(function(item) {
               alignItems:'center',
             }}
           >
-            <Layout col="1">
+            
+            <section style={{height:'fit-content', flexDirection:'column', margin:'30px'}}>
+              <h1>Our Progress</h1>
+              <Layout col="3" style={{background:'rgba(0,0,0,0.4)', height:'fit-content', padding:'50px 0px', borderRadius:'50px'}}>
+                <CastleCard name={item[0].name} bg={item[0].bg} icon={item[0].icon} description={item[0].description} progress={nathria2} world={nathria.world} region={nathria.region} realm={nathria.realm}/>
+                <CastleCard name={item[1].name} bg={item[1].bg} icon={item[1].icon} description={item[1].description} progress={fatednathria2} world={fatednathria.world} region={fatednathria.region} realm={fatednathria.realm}/>
+                <CastleCard name={item[2].name} bg={item[2].bg} icon={item[2].icon} description={item[2].description} progress={sanctum2} world={sanctum.world} region={sanctum.region} realm={sanctum.realm}/>
+                <CastleCard name={item[3].name} bg={item[3].bg} icon={item[3].icon} description={item[3].description} progress={fatedsanctum2} world={fatedsanctum.world} region={fatedsanctum.region} realm={fatedsanctum.realm}/>
+                <CastleCard name={item[4].name} bg={item[4].bg} icon={item[4].icon} description={item[4].description} progress={sepulcher2} world={sepulcher.world} region={sepulcher.region} realm={sepulcher.realm}/>
+                <CastleCard name={item[5].name} bg={item[5].bg} icon={item[5].icon} description={item[5].description} progress={fatedsepulcher2} world={fatedsepulcher.world} region={fatedsepulcher.region} realm={fatedsepulcher.realm}/>
+              </Layout>
+            </section>
+            {/* <Layout col="1">
               <div style={{width:'60vw', flexBasis: '40%',}}>
                 <h1>Achievements</h1>
                 <Slider3 data={state.data.achievements} />
               </div>
-            </Layout>
+            </Layout> */}
             <Layout col="1">
-              <section className="about" id="about">
+              <section className="goals" id="goals" style={{height:'fit-content', flexDirection:'column'}}>
                 <h1 style={{textAlign:'center'}}>
                   Our Goals
                 </h1>
-                <div className="card2 user" style={{height:'fit-content', width:'80%'}}>
+                <div className="card2 user" style={{height:'fit-content', width:'100%'}}>
                   <span className="inner-card-backface" style={{background:'transparent'}}>
                     <span className="flip-inner-card">
                     </span>
@@ -167,14 +189,14 @@ document.querySelectorAll('.card2').forEach(function(item) {
                   <span className="inner-card" style={{background:'transparent', width:'100%'}}>
                     <div className="intro" style={{maxWidth:'unset', padding:'100px', borderRadius:'25px'}}>
                       
-                      <div style={{width:'100%', display:'flex', alignItems:'center', justifyContent:'space-between'}}>
+                      <div className="goals">
                         <ul>
                           <li style={{marginBottom:'20px'}}>Lorem, ipsum dolor sit amet consectetur </li>
                           <li style={{marginBottom:'20px'}}>Lorem, ipsum dolor sit amet consectetur </li>
                           <li style={{marginBottom:'20px'}}>Lorem, ipsum dolor sit amet consectetur </li>
                           <li style={{marginBottom:'20px'}}>Lorem, ipsum dolor sit amet consectetur </li>
                         </ul>
-                          <img src="https://i.ibb.co/wCR7NmS/logo.png" alt="" width="25%"/>
+                          <img src="https://i.ibb.co/wCR7NmS/logo.png" alt=""/>
                       </div>
                     </div>
                     <span className="glare"></span>
