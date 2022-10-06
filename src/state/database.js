@@ -44,18 +44,8 @@ const database = {
   },
   menu: [
     {
-      children: [
-        {
-          name: "Slider Header",
-          url: "/",
-        },
-        {
-          name: "Video Background",
-          url: "/home-video",
-        },
-      ],
       name: "Home",
-      url: "/",
+      url: "/home",
     },
     {
       children: [
@@ -64,8 +54,8 @@ const database = {
           url: "/teams/twb",
         },
         {
-          name: "Video Background",
-          url: "/home-video",
+          name: "Team Clear Comms",
+          url: "/teams/tcc",
         },
       ],
       name: "Teams",
