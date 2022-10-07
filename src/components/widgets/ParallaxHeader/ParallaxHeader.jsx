@@ -14,7 +14,6 @@ import {
   Services,
   Team,
   HomeTeams,
-  Contacts,
   Slider,
   Reviews,
   Facts,
@@ -26,6 +25,111 @@ export default () => {
   //gsap init
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ease: "none"});
+
+  let calculateAngle = function(e, item, parent) {
+    let dropShadowColor = `rgba(0, 0, 0, 0.3)`
+    if(parent.getAttribute('data-filter-color') !== null) {
+        dropShadowColor = parent.getAttribute('data-filter-color');
+    }
+
+    parent.classList.add('animated');
+    // Get the x position of the users mouse, relative to the button itself
+    let x = Math.abs(item.getBoundingClientRect().x - e.clientX);
+    // Get the y position relative to the button
+    let y = Math.abs(item.getBoundingClientRect().y - e.clientY);
+
+    // Calculate half the width and height
+    let halfWidth  = item.getBoundingClientRect().width / 2;
+    let halfHeight = item.getBoundingClientRect().height / 2;
+
+    // Use this to create an angle. I have divided by 6 and 4 respectively so the effect looks good.
+    // Changing these numbers will change the depth of the effect.
+    let calcAngleX = (x - halfWidth) / 16;
+    let calcAngleY = (y - halfHeight) / 14;
+  
+    let gX = (1 - (x / (halfWidth * 2))) * 100;
+    let gY = (1 - (y / (halfHeight * 2))) * 100;
+  
+    item.querySelector('.glare').style.background = `radial-gradient(circle at ${gX}% ${gY}%, rgb(199 198 243), transparent)`;
+    // And set its container's perspective.
+    parent.style.perspective = `${halfWidth * 6}px`
+    item.style.perspective = `${halfWidth * 6}px`
+
+    // Set the items transform CSS property
+    item.style.transform = `rotateY(${calcAngleX}deg) rotateX(${-calcAngleY}deg) scale(1.04)`;
+    parent.querySelector('.inner-card-backface').style.transform = `rotateY(${calcAngleX}deg) rotateX(${-calcAngleY}deg) scale(1.04) translateZ(-4px)`;
+  
+    if(parent.getAttribute('data-custom-perspective') !== null) {
+        parent.style.perspective = `${parent.getAttribute('data-custom-perspective')}`
+    }
+
+    // Reapply this to the shadow, with different dividers
+    let calcShadowX = (x - halfWidth) / 3;
+    let calcShadowY = (y - halfHeight) / 6;
+    
+    // Add a filter shadow - this is more performant to animate than a regular box shadow.
+    item.style.filter = `drop-shadow(${-calcShadowX}px ${-calcShadowY}px 15px ${dropShadowColor})`;
+}
+document.querySelectorAll('.card2').forEach(function(item) {
+    if(item.querySelector('.flip') !== null) {
+      item.querySelector('.flip').addEventListener('click', function() {
+        item.classList.add('flipped');
+      });
+    }
+    if(item.querySelector('.unflip') !== null) {
+      item.querySelector('.unflip').addEventListener('click', function() {
+        item.classList.remove('flipped');
+      });
+    }
+    item.addEventListener('mouseenter', function(e) {
+        calculateAngle(e, this.querySelector('.inner-card'), this);
+    });
+
+    item.addEventListener('mousemove', function(e) {
+        calculateAngle(e, this.querySelector('.inner-card'), this);
+    });
+
+    item.addEventListener('mouseleave', function(e) {
+        let dropShadowColor = `rgba(0, 0, 0, 0.3)`
+        if(item.getAttribute('data-filter-color') !== null) {
+            dropShadowColor = item.getAttribute('data-filter-color')
+        }
+        item.classList.remove('animated');
+        item.querySelector('.inner-card').style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+        item.querySelector('.inner-card-backface').style.transform = `rotateY(0deg) rotateX(0deg) scale(1.01) translateZ(-4px)`;
+        item.querySelector('.inner-card').style.filter = `drop-shadow(0 10px 15px ${dropShadowColor})`;
+    });
+})
+document.querySelectorAll('.card3').forEach(function(item) {
+  if(item.querySelector('.flip') !== null) {
+    item.querySelector('.flip').addEventListener('click', function() {
+      item.classList.add('flipped');
+    });
+  }
+  if(item.querySelector('.unflip') !== null) {
+    item.querySelector('.unflip').addEventListener('click', function() {
+      item.classList.remove('flipped');
+    });
+  }
+  item.addEventListener('mouseenter', function(e) {
+      calculateAngle(e, this.querySelector('.inner-card'), this);
+  });
+
+  item.addEventListener('mousemove', function(e) {
+      calculateAngle(e, this.querySelector('.inner-card'), this);
+  });
+
+  item.addEventListener('mouseleave', function(e) {
+      let dropShadowColor = `rgba(0, 0, 0, 0.3)`
+      if(item.getAttribute('data-filter-color') !== null) {
+          dropShadowColor = item.getAttribute('data-filter-color')
+      }
+      item.classList.remove('animated');
+      item.querySelector('.inner-card').style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+      item.querySelector('.inner-card-backface').style.transform = `rotateY(0deg) rotateX(0deg) scale(1.01) translateZ(-4px)`;
+      item.querySelector('.inner-card').style.filter = `drop-shadow(0 10px 15px ${dropShadowColor})`;
+  });
+})
 
   const [state, actions] = useCustomState();
   const [randomColor, setRandomColor] = useState("#0d2240");
@@ -61,7 +165,7 @@ export default () => {
     <div
       className="parallax"
       style={{
-        backgroundImage: "url(" + state.data.header_bgs.about + ")",
+        backgroundImage: "url(" + state.data.parallax.bg + ")",
       }}
     >
       <Layout col="1">
@@ -116,18 +220,26 @@ export default () => {
             <VideoHeader autoPlay={false} width={width> 992? '45%' : '80%'} height={width> 992? '45%' : '40vh'}/>
           </div>
         </section>
-        <section id="guild" >
-          <div className="intro">
-            <h1>
+        <section className="goals" id="goals" style={{height:'fit-content', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+          <h1 style={{textAlign:'center'}}>
             Guild Philosophy
-            </h1>
-            <h4 style={{fontWeight:'200', lineHeight:'normal'}}>
-              Mist is a cutting-edge guild focused on us-250 progression. Our guild prides itself on always improving. We want raiders who want to improve their play, improve the raid team, and improve the culture we foster here. We value solid mechanical play over individual parses. If hardcore progression doesn't fit your playstyle but you're still looking for a cutting-edge focused environment to push content, we also run a late-night two night a week group.
-            </h4>
-          </div>    
-        </section>
-        <section style={{height:'fit-content'}}>
-          <Team data={state.data.members} />
+          </h1>
+          <div className="card3 user" style={{height:'fit-content', width:'100%'}}>
+            <span className="inner-card-backface" style={{background:'transparent'}}>
+              <span className="flip-inner-card">
+              </span>
+            </span>
+            <span className="inner-card" style={{background:'transparent', width:'100%'}}>
+              <div className="intro" style={{maxWidth:'unset', padding:'100px', borderRadius:'25px'}}>
+                
+                <div className="goals">
+                  <p style={{padding:'2vw'}}>Mist is a cutting-edge guild focused on us-250 progression. Our guild prides itself on always improving. We want raiders who want to improve their play, improve the raid team, and improve the culture we foster here. We value solid mechanical play over individual parses. If hardcore progression doesn't fit your playstyle but you're still looking for a cutting-edge focused environment to push content, we also run a late-night two night a week group.</p>
+                    <img src="https://i.ibb.co/wCR7NmS/logo.png" alt=""/>
+                </div>
+              </div>
+              <span className="glare"></span>
+            </span>
+          </div>
         </section>
       </Layout>
       <div className="form">

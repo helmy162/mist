@@ -6,7 +6,6 @@ import {
   Services,
   Team,
   Services3,
-  Contacts,
   Slider,
   Reviews,
   ParallaxHeader,
@@ -27,7 +26,6 @@ export default () => {
             <ParallaxHeader />
           </div>
           
-          {/* <Contacts /> */}
     </Fragment>
   );
 };

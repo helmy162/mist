@@ -1,24 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
 import styles from "./Slider2.module.scss";
 import Layout from "../../layouts/Layout/Layout";
 import { Button } from "../../elements";
-import CastleCard from "../CastleCard/CastleCard";
 
 export default (props) => {
- 
   let sliderRef = useRef(null);
-  // get window dimensions
-  function getWindowDimensions() { const { innerWidth: width, innerHeight: height } = window;return {width,height};}
-  function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-    useEffect(() => {function handleResize() {setWindowDimensions(getWindowDimensions());} window.addEventListener('resize', handleResize); return () => window.removeEventListener('resize', handleResize);}, []);
-    return windowDimensions;
-  }
-  const { height, width } = useWindowDimensions();
-  const x = width>1537? 3: width>993? 2 : 1;
-  const y = x===3 ? 4 : x===2 ? 3 : 0;
-  console.log(x,y);
 
   const settings = {
     dots: false,
@@ -28,9 +15,8 @@ export default (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
-  const slideList = props.data.slice(y).map((item, index) => (
-    <article key={index}>
+  const item= props.data[props.teamID];
+  const slideList = <article>
       <Layout
         style={{
           background: "url(" + item.bg + ") center/cover",
@@ -43,19 +29,44 @@ export default (props) => {
           <i
             className={"las la-long-arrow-alt-left"}
             onClick={() => sliderRef.slickPrev()}
+            style={{visibility: 'hidden'}}
           />
-          <div>
-            {/* <h1 style={{fontSize:'3vw', margin:'50px 0px'}}> {item.name} </h1> */}
-            {props.children.slice(index*x, index*x+x)}
+          <div className={styles.intro}>
+            <h1>{item.name}</h1>
+            <p style={{marginBottom:'10px'}}>{item.short}</p>
+            <div className={styles.intro} style={{maxWidth:'unset', marginBottom:'20px'}}>
+              <div className="card2 user" style={{height:'fit-content', width:'100%'}}>
+              <span className="inner-card-backface" style={{background:'transparent'}}>
+                <span className="flip-inner-card"></span>
+              </span>
+              <span className="inner-card" style={{background:'transparent', width:'100%'}}>
+                <div className="intro" style={{maxWidth:'unset', padding:'100px', borderRadius:'25px'}}>
+                  <div className="goals" style={{justifyContent:'center', flexDirection:'column'}}>
+                    <h1>Raid Times</h1>
+                    <ul>
+                        { item.TimeRanges.map((item2, index2) => (
+                          <li key={index2} style={{marginBottom:'20px'}}> {item2.time} </li>
+                        ))}
+                    </ul> 
+                  </div>
+                </div>
+                <span className="glare"></span>
+              </span>
+              </div>
+            </div>
+            <Button to={"/apply/"} hoverType="solid-white-tb">
+              Apply Now
+            </Button>
           </div>
           <i
             className={"las la-long-arrow-alt-right"}
             onClick={() => sliderRef.slickNext()}
+            style={{visibility: 'hidden'}}
           />
-        </div> 
+        </div>
       </Layout>
     </article>
-  ));
+  ;
 
   return (
     <Slider ref={(slider) => (sliderRef = slider)} {...settings}>

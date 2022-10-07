@@ -2,7 +2,51 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
+.scroll {
+	width: 60px;
+	height: 60px;
+  margin-top: 30px;
+	border: 2px solid white;
+	border-radius: 50%;
+	position: relative;
+	animation: down 1.5s infinite;
+	-webkit-animation: down 1.5s infinite;
+}
+.scroll::before{
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+}
 
+@keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@-webkit-keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
 body{
   overflow: hidden;
 }
@@ -62,7 +106,7 @@ body{
   border-radius: 19px;
   position: relative;
   text-align: center;
-  box-shadow: 0px 10px 30px -12px #A330C9;
+  box-shadow: -0px 10px 30px -8px #62C8E8;
   z-index: 9999;
   max-width: min(80vw, 400px);
   min-width: min(75vw, 350px);
@@ -88,9 +132,9 @@ body{
   
 }
 .clash-card__image--barbarian img{
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   max-width: 80%;
-  display: none;
+  /* display: none; */
 }
 
 .clash-card__image--archer {

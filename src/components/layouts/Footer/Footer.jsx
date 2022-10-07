@@ -8,19 +8,6 @@ import { useCustomState } from "../../../state/state";
 export default () => {
   const state = useCustomState()[0];
 
-  const servicesList = state.data.teams
-    .map((item, index) => (
-      <Link
-        key={index}
-        url={"/teams" + item.link}
-        hoverStyle={{ color: '#62C8E8' }}
-      >
-        <i className="las la-angle-right" />
-        {item.title}
-      </Link>
-    ))
-    .slice(0, 5);
-
   const linkList = state.data.fast_links.map((item, index) => (
     <Link key={index} url={item.url} hoverStyle={{ color: '#62C8E8' }}>
       <i className="las la-angle-right" />
@@ -45,7 +32,20 @@ export default () => {
         <div className={styles.link_area}>
           <div className={styles.links}>
             <h4>Teams</h4>
-            {servicesList}
+            <Link
+              url={"/teams/twb"}
+              hoverStyle={{ color: '#62C8E8' }}
+            >
+              <i className="las la-angle-right" />
+              Team Wind Bridge
+            </Link>
+            <Link
+              url={"/teams/tcc"}
+              hoverStyle={{ color: '#62C8E8' }}
+            >
+              <i className="las la-angle-right" />
+              Team Clear Comms
+            </Link>
           </div>
           <div className={styles.links}>
             <h4>Fast Links</h4>

@@ -3,22 +3,21 @@ import { Switch, Route, Redirect} from "react-router-dom";
 
 import {
   Home,
-  HomeParalax,
   HomeVideo,
   About,
   Services,
   Portfolio,
-  Contacts,
   Blog,
   PostSingle,
   ServiceSingle,
   MemberCard,
   PortfolioSingle,
-  Teams,
+  Teams1,
+  Teams2,
   Apply
 } from "./components/pages";
 import { Header, Sidebar, Footer } from "./components/layouts";
-import { ModalForm, RequestForm } from "./components/ui";
+import { ModalForm } from "./components/ui";
 import { Spinner } from "./components/elements";
 import { useCustomState } from "./state/state";
 import { HomeTeams } from "./components/widgets";
@@ -37,25 +36,12 @@ export default () => {
         <Fragment>
           <Sidebar data={state.data.menu} />
           <ModalForm />
-          <RequestForm />
           <Header data={state.data.menu} />
           <Switch>
             <Route path="/home" exact component={Home} />
-            <Route path="/home-paralax" exact component={HomeParalax} />
-            <Route path="/home-video" exact component={HomeVideo} />
-            <Route path="/about-us" exact component={About} />
             <Route path="/apply" exact component={Apply} />
-            <Route path="/services" exact component={Services} />
-            <Route path="/portfolio" exact component={Portfolio} />
-            <Route path="/contacts" exact component={Contacts} />
-            <Route path="/blog/:post_id" exact component={PostSingle} />
-            <Route path="/teams/" exact component={Teams} />
-            <Route path="/team/:member_id" exact component={MemberCard} />
-            <Route
-              path="/portfolio/:project_id"
-              exact
-              component={PortfolioSingle}
-            />
+            <Route path="/teams/twb" exact component={Teams1} />
+            <Route path="/teams/tcc" exact component={Teams2} />
             <Redirect to="/home" />
           </Switch>
           <Footer />

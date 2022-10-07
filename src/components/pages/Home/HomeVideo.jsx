@@ -4,7 +4,6 @@ import {
   Services,
   Team,
   Services2,
-  Contacts,
   Reviews,
   VideoHeader,
   Process,

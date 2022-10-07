@@ -3,7 +3,9 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 102px);
+  height: fit-content;
+  min-height: calc(100vh - 102px);
+  margin: 100px 0px !important;
 }
 section#about, section#highlights{
   flex-direction: column;

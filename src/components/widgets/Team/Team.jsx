@@ -6,40 +6,50 @@ import { Button } from "../../elements";
 import THEME from "../../../state/theme";
 import { useCustomState } from "../../../state/state";
 import logo from './logo.png';
+import './Team.css';
 export default ({ data = [] }) => {
   const [state, actions] = useCustomState();
 
+  const officerList = data.map((item, index) => (
+      item.officer?
+        <article key={index} style={{flexBasis: 'calc(25% - 3rem)'}}>
+          <CardImage image={item.class} label={logo} user={item.user} item={item} discord={item.discord}>
+          </CardImage>
+        </article>
+      : null
+  ));
+
   const teamList = data.map((item, index) => (
-    <article key={index}>
-      <CardImage image={item.class} label={logo} user={item.user} item={item} discord={item.discord}>
-      </CardImage>
-    </article>
+    !item.officer?
+        <article key={index} style={{flexBasis: 'calc(25% - 3rem)'}}>
+          <CardImage image={item.class} label={logo} user={item.user} item={item} discord={item.discord}>
+          </CardImage>
+        </article>
+      : null
   ));
 
   return (
     <Layout
-      style={{
-        background: "transparent",
-      }}
-      mode="dark"
-      col="3"
-      padding
-      blur
+      style={{background:'rgba(0,0,0,0.4)', height:'fit-content', padding:'50px 0px', borderRadius:'50px'}}
+      // mode="dark"
+      col="1"
+      // padding
+      // blur
     >
-      {/* <div className="layout-header">
-        <span className="subtitle" style={{ color: THEME.color }}>
-          Team members
-        </span>
-        <h2 style={{ color: "#fff" }}>
-          Best workers in our industry for your purpose.
-        </h2>
-        <p style={{ color: "#fff" }}>
-          Energistically predominate high-payoff alignments whereas maintainable
-          materials timely deliverables. Synergistically leverage other's
-          holistic mindshare via high-payoff expertise.
-        </p>
-      </div> */}
-      {teamList}
+      <div style={{display:'flex', flexDirection:'column', gap:'50px'}}>
+        <div>
+          <h1> Officers </h1>
+          <div style={{display:'flex', gap:'20px', flexWrap:'wrap', justifyContent:'center'}}>
+            {officerList}
+          </div>
+        </div>
+        <div>
+          <h1> Members </h1>
+          <div style={{display:'flex', gap:'20px', flexWrap:'wrap', justifyContent:'center'}}>
+            {teamList}
+          </div>
+        </div>
+      </div>
       {/* <div className={["layout-footer", styles.footer].join(" ")}>
         <span>
           <b style={{ color: THEME.color }}>Let's start do business. </b>

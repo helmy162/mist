@@ -6,7 +6,6 @@ import {
   Services,
   Team,
   Services3,
-  Contacts,
   Slider,
   Slider2,
   Slider3,
@@ -86,7 +85,7 @@ export default ({ data = [] }) => {
     // Add a filter shadow - this is more performant to animate than a regular box shadow.
     item.style.filter = `drop-shadow(${-calcShadowX}px ${-calcShadowY}px 15px ${dropShadowColor})`;
 }
-document.querySelectorAll('.card2').forEach(function(item) {
+document.querySelectorAll('.card3').forEach(function(item) {
     if(item.querySelector('.flip') !== null) {
       item.querySelector('.flip').addEventListener('click', function() {
         item.classList.add('flipped');
@@ -147,41 +146,33 @@ document.querySelectorAll('.card2').forEach(function(item) {
 
   return (
     <Fragment>
-          <Slider data={state.data.posts}/>
-
+          <Slider2 data={state.data.teams} teamID={0} />
           {/* <Team data={state.data.members} /> */}
           <div
             className="parallax"
             style={{
-              backgroundImage: "url(" + state.data.header_bgs.about + ")",
+              backgroundImage: "url(" + state.data.parallax.bg + ")",
               flexDirection:'column',
               alignItems:'center',
             }}
           >
-            
             <section style={{height:'fit-content', flexDirection:'column', margin:'30px'}}>
               <h1>Our Progress</h1>
               <Layout col="3" style={{background:'rgba(0,0,0,0.4)', height:'fit-content', padding:'50px 0px', borderRadius:'50px'}}>
                 <CastleCard name={item[0].name} bg={item[0].bg} icon={item[0].icon} description={item[0].description} progress={nathria2} world={nathria.world} region={nathria.region} realm={nathria.realm}/>
-                <CastleCard name={item[1].name} bg={item[1].bg} icon={item[1].icon} description={item[1].description} progress={fatednathria2} world={fatednathria.world} region={fatednathria.region} realm={fatednathria.realm}/>
-                <CastleCard name={item[2].name} bg={item[2].bg} icon={item[2].icon} description={item[2].description} progress={sanctum2} world={sanctum.world} region={sanctum.region} realm={sanctum.realm}/>
-                <CastleCard name={item[3].name} bg={item[3].bg} icon={item[3].icon} description={item[3].description} progress={fatedsanctum2} world={fatedsanctum.world} region={fatedsanctum.region} realm={fatedsanctum.realm}/>
                 <CastleCard name={item[4].name} bg={item[4].bg} icon={item[4].icon} description={item[4].description} progress={sepulcher2} world={sepulcher.world} region={sepulcher.region} realm={sepulcher.realm}/>
-                <CastleCard name={item[5].name} bg={item[5].bg} icon={item[5].icon} description={item[5].description} progress={fatedsepulcher2} world={fatedsepulcher.world} region={fatedsepulcher.region} realm={fatedsepulcher.realm}/>
+                <CastleCard name={item[2].name} bg={item[2].bg} icon={item[2].icon} description={item[2].description} progress={sanctum2} world={sanctum.world} region={sanctum.region} realm={sanctum.realm}/>
+                {/* <CastleCard name={item[1].name} bg={item[1].bg} icon={item[1].icon} description={item[1].description} progress={fatednathria2} world={fatednathria.world} region={fatednathria.region} realm={fatednathria.realm}/> */}
+                {/* <CastleCard name={item[3].name} bg={item[3].bg} icon={item[3].icon} description={item[3].description} progress={fatedsanctum2} world={fatedsanctum.world} region={fatedsanctum.region} realm={fatedsanctum.realm}/> */}
+                {/* <CastleCard name={item[5].name} bg={item[5].bg} icon={item[5].icon} description={item[5].description} progress={fatedsepulcher2} world={fatedsepulcher.world} region={fatedsepulcher.region} realm={fatedsepulcher.realm}/> */}
               </Layout>
             </section>
-            {/* <Layout col="1">
-              <div style={{width:'60vw', flexBasis: '40%',}}>
-                <h1>Achievements</h1>
-                <Slider3 data={state.data.achievements} />
-              </div>
-            </Layout> */}
             <Layout col="1">
-              <section className="goals" id="goals" style={{height:'fit-content', flexDirection:'column'}}>
+              <section className="goals" id="goals" style={{height:'fit-content', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
                 <h1 style={{textAlign:'center'}}>
                   Our Goals
                 </h1>
-                <div className="card2 user" style={{height:'fit-content', width:'100%'}}>
+                <div className="card3 user" style={{height:'fit-content', width:'100%'}}>
                   <span className="inner-card-backface" style={{background:'transparent'}}>
                     <span className="flip-inner-card">
                     </span>
@@ -204,10 +195,15 @@ document.querySelectorAll('.card2').forEach(function(item) {
                 </div>
               </section>
             </Layout>
+            <Layout col="1">
+            <section style={{height:'fit-content', flexDirection:'column'}}>
+              <h1>Meet Our Team</h1>
+              <Team data={state.data.members1} />
+            </section>
+            </Layout>
             
           </div>
           
-          {/* <Contacts /> */}
     </Fragment>
   );
 };
