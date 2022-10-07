@@ -16,6 +16,7 @@ export default (props) => {
                   <span className="inner-card" style={{background:'transparent', width:'100%'}}>
                     <div className="clash-card barbarian">
                       <div className="clash-card__image clash-card__image--barbarian" style={{backgroundImage: "url(" + props.bg + ")"}}>
+                        <img src={props.icon} alt="barbarian" height='90%' />
                       </div>
                       <div className="clash-card__level clash-card__level--barbarian" style={{fontSize:'16px'}}>{props.progress}</div>
                       <div className="clash-card__unit-name" style={{fontSize:'26px'}}>{props.name}</div>

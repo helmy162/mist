@@ -6,7 +6,6 @@ import {
   Services,
   Team,
   Services3,
-  Contacts,
   Slider,
   Slider2,
   Slider3,
@@ -113,13 +112,10 @@ export default ({ data = [] }) => {
   
     
 
-    //form animation
-    const formSection = useRef();
-    useEffect(() => {gsap.to(formSection.current, {x: -mouseX/20, y: -mouseY/20,});}, [mouseX, mouseY]);
 
     //submit animation
     const submitButton = useRef();
-    useEffect(() => {gsap.to(submitButton.current, {x: -mouseX/10, y: mouseY/20,});}, [mouseX, mouseY]);
+    useEffect(() => {gsap.to(submitButton.current, {x: -mouseX/50, y: mouseY/30,});}, [mouseX, mouseY]);
 
   return (
     <Fragment>
@@ -129,7 +125,7 @@ export default ({ data = [] }) => {
           <div
             className="parallax"
             style={{
-              backgroundImage: "url(" + state.data.header_bgs.about + ")",
+              backgroundImage: "url(" + state.data.parallax.bg + ")",
               flexDirection:'column',
               alignItems:'center',
             }}
@@ -137,7 +133,7 @@ export default ({ data = [] }) => {
             <Layout col="1">
               <section className="apply" id="apply" style={{height:'fit-content', flexDirection:'column', padding:'100px 0px'}}>
                 {/* <h1 style={{textAlign:'center'}}> Apply Now</h1> */}
-                <Form className="apply-form" style={{width:'80%', fontSize:'max(2vw, 36px)'}} ref={formSection}>
+                <Form className="apply-form" style={{width:'80%', fontSize:'max(2vw, 36px)'}}>
                   <Form.Group className="form-group mb-3">
                     <Form.Label>Character Name</Form.Label>
                     <Form.Control type="text" />
@@ -227,8 +223,7 @@ export default ({ data = [] }) => {
             </Layout>
             
           </div>
-          
-          {/* <Contacts /> */}
+        
     </Fragment>
   );
 };

@@ -1,9 +1,6 @@
 import Mock from "./mock";
 import icon from "../assets/logo.png";
 
-const photo = require("../assets/placeholders/photo.jpg");
-const logotype = require("../assets/placeholders/logotype.png");
-// const icon = require("../assets/placeholders/icon.svg");
 
 const database = {
   fast_links: [
@@ -28,19 +25,8 @@ const database = {
       url: "/contacts",
     },
   ],
-  header_bgs: {
-    about: 'https://i.ibb.co/M7y9xL8/world-of-warcraft-dragonflight-main-menu-loading-screen.jpg',
-    about_video_poster: photo,
-    blog: photo,
-    contacts: photo,
-    contacts_w: photo,
-    portfolio: photo,
-    services: photo,
-    team: photo,
-    team_w: photo,
-    facts: photo,
-    subscribe: photo,
-    list: photo,
+  parallax: {
+    bg: 'https://i.ibb.co/M7y9xL8/world-of-warcraft-dragonflight-main-menu-loading-screen.jpg',
   },
   menu: [
     {
@@ -87,6 +73,11 @@ const database = {
     },
   ],
   requirements: [
+    {
+      featured: true,
+      image: 'https://i.ibb.co/4YNK3hh/cinematic-render-2.jpg',
+      title: "Please make sure to read the following requirements before applying.",
+    },
     {
       featured: true,
       image: 'https://i.ibb.co/4YNK3hh/cinematic-render-2.jpg',
@@ -161,6 +152,11 @@ const database = {
         },
       ]
     },
+    {
+      featured: true,
+      image: 'https://i.ibb.co/4YNK3hh/cinematic-render-2.jpg',
+      title: "Now You are all set, Scroll down to Apply!",
+    },
   ],
   achievements: [
     {
@@ -194,7 +190,7 @@ const database = {
   castles: [
     {
       name: "Castle Nathria",
-      icon: '',
+      icon: 'https://i.ibb.co/GsdyVtt/sire-Denathrius-Big.png',
       bg: 'https://wow.zamimg.com/uploads/guide/seo/10246.jpg?1588896674',
       description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
     },
@@ -231,28 +227,50 @@ const database = {
   ],
   teams: [
     {
+      name: "Team Wind Bridge",
+      short: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
       icon: 'https://i.ibb.co/GsdyVtt/sire-Denathrius-Big.png',
       id: 0,
       bg: 'https://cdn1.dotesports.com/wp-content/uploads/2020/12/10013745/gargoyle.jpg',
-      subtitle: "Handling of construction materials",
-      link: "/twb",
-      title: "Team Wind Bridge",
-      zone: "Sepulcher of the First Ones"
+      link: "/teams/twb",
+      TimeRanges: [
+        { 
+          time: 'TUESDAY: 9PM-12AM CST (SERVER TIME)'
+        },
+        {
+          time: 'WEDNESDAY: 9PM-12AM CST (SERVER TIME)'
+        },
+        {
+          time: 'THURSDAY: 9PM-12AM CST (SERVER TIME)'
+        }
+      ],
     },
     {
+      name: "Team Clear Comms",
+      short: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
       description:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione commodi sint illo facere id dolore repudiandae, ex dignissimos molestiae voluptatum, totam quia? Laborum dolore modi voluptatibus alias fugit perferendis.",
       icon: 'https://www.pngall.com/wp-content/uploads/11/World-Of-Warcraft-PNG-HD-Image.png',
       id: 1,
       bg: 'https://wallpapercave.com/wp/wp10407651.jpg',
-      subtitle: "Making planning for ptoject",
-      link: "/2nmt",
-      title: "2-Night Mythic Team",
+      link: "/teams/tcc",
+      TimeRanges: [
+        { 
+          time: 'MONDAY: 10PM-1AM CST (SERVER TIME)'
+        },
+        {
+          time: 'TUESDAY: 10PM-1AM CST (SERVER TIME)'
+        },
+        {
+          time: 'THURSDAY: 10PM-1AM CST (SERVER TIME)'
+        }
+      ],
+      
     },
   ],
-  members: [
+  members1: [
     {
       id: 0,
       user: 'Billygates',
@@ -280,8 +298,58 @@ const database = {
       user: 'Mysticplay',
       officer: false,
     },
+    {
+      id: 4,
+      user: 'Mysticplay',
+      officer: false,
+    },
+    {
+      id: 5,
+      user: 'Mysticplay',
+      officer: false,
+    },
+  ],
+  members2: [
+    {
+      id: 0,
+      user: 'Billygates',
+      officer: true,
+      discord: 'Billygates#1234',
+      about: '',
+    },
+    {
+      id: 1,
+      user: 'Äni',
+      officer: false,
+    },
+    {
+      id: 2,
+      user: 'Zensy',
+      officer: false,
+    },
+    {
+      id: 3,
+      user: 'Ducksyan',
+      officer: false,
+    },
+    {
+      id: 3,
+      user: 'Mysticplay',
+      officer: false,
+    },
+    {
+      id: 4,
+      user: 'Mysticplay',
+      officer: false,
+    },
+    {
+      id: 5,
+      user: 'Mysticplay',
+      officer: false,
+    },
   ],
 };
+
 
 Mock.onGet("/api/data").reply((config) => {
   const response = database;

@@ -22,18 +22,20 @@ export default ({ data = [] }) => {
         style={{
           background: "url(" + item.image + ") center/cover",
           minHeight:'100vh',
-          height:'fit-content'
+          height:'fit-content',
         }}
         col="1"
         mode="dark"
       >
-        <div className={styles.slide}>
+        <div className={styles.slide} style={{justifyContent:'center'}}>
           <i
             className={"las la-long-arrow-alt-left"}
             onClick={() => sliderRef.slickPrev()}
           />
           <div className={styles.intro} style={{maxWidth:'unset'}}>
             <h1>{item.title}</h1>
+            {
+              index !==0 && index!==4?
             <div className="card2 user" style={{height:'fit-content', width:'100%'}}>
             <span className="inner-card-backface" style={{background:'transparent'}}>
               <span className="flip-inner-card">
@@ -44,7 +46,7 @@ export default ({ data = [] }) => {
                 <div className="goals" style={{justifyContent:'center'}}>
                   <ul>
                     {item.data.map((item2, index2) => (
-                      index===2?
+                      index===3?
                       <li key={index2} style={{marginBottom:'20px'}}><a href={item2.link}>{item2.title}</a></li>
                       :
                       <li key={index2} style={{marginBottom:'20px'}}> {item2.title} </li>
@@ -55,6 +57,10 @@ export default ({ data = [] }) => {
               <span className="glare"></span>
             </span>
             </div>
+            : index ===4?
+            <div class={styles.scroll}></div>
+            : null
+          }
           </div>
           <i
             className={"las la-long-arrow-alt-right"}
