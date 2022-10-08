@@ -125,6 +125,7 @@ body{
     margin: 0px auto;
   }
 }
+
 @media screen and (min-width: 1700px){
   .card2 .inner-card{
     margin: 0px auto;
