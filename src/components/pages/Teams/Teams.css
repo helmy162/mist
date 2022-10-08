@@ -120,6 +120,11 @@ body{
     padding: 5px;
   }
 }
+@media screen and (max-width: 576px){
+  .card2 .inner-card{
+    margin: 0px auto;
+  }
+}
 
 .castle-cards-wrapper{
   display: contents;
