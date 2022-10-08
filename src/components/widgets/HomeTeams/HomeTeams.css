@@ -129,8 +129,13 @@
 }
 
 .card .button {
+  position: absolute;
   opacity: 0;
   transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
 }
 
 

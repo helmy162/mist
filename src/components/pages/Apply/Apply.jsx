@@ -1,24 +1,9 @@
-import React, { Fragment, useState, useEffect, useRef} from "react";
+import React, { Fragment, useEffect, useRef} from "react";
 import {
-  Features,
-  Features2,
-  Subscribe,
-  Services,
-  Team,
-  Services3,
-  Slider,
-  Slider2,
   Slider3,
-  Reviews,
-  ParallaxHeader,
-  Facts,
-  VideoHeader,
 } from "../../widgets";
 import { useCustomState } from "../../../state/state";
-import CastleCard from "../../widgets/CastleCard/CastleCard";
 import { Layout } from "../../layouts";
-import { CardImage } from "../../ui";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './Apply.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
@@ -48,8 +33,8 @@ export default ({ data = [] }) => {
 
     // Use this to create an angle. I have divided by 6 and 4 respectively so the effect looks good.
     // Changing these numbers will change the depth of the effect.
-    let calcAngleX = (x - halfWidth) / 16;
-    let calcAngleY = (y - halfHeight) / 14;
+    let calcAngleX = (x - halfWidth) / 36;
+    let calcAngleY = (y - halfHeight) / 34;
   
     let gX = (1 - (x / (halfWidth * 2))) * 100;
     let gY = (1 - (y / (halfHeight * 2))) * 100;
@@ -111,7 +96,7 @@ export default ({ data = [] }) => {
     const mouseX = mousePosition.x; const mouseY = mousePosition.y;
   
     
-
+    const scrollToref = useRef(null);
 
     //submit animation
     const submitButton = useRef();
@@ -119,7 +104,7 @@ export default ({ data = [] }) => {
 
   return (
     <Fragment>
-          <Slider3 data={state.data.requirements}/>
+          <Slider3 data={state.data.requirements} scrollto={scrollToref}/>
 
           {/* <Team data={state.data.members} /> */}
           <div
@@ -131,7 +116,7 @@ export default ({ data = [] }) => {
             }}
           >
             <Layout col="1">
-              <section className="apply" id="apply" style={{height:'fit-content', flexDirection:'column', padding:'100px 0px'}}>
+              <section className="apply" id="apply" style={{height:'fit-content', flexDirection:'column', padding:'100px 0px'}} ref={scrollToref}>
                 {/* <h1 style={{textAlign:'center'}}> Apply Now</h1> */}
                 <Form className="apply-form" style={{width:'80%', fontSize:'max(2vw, 36px)'}}>
                   <Form.Group className="form-group mb-3">

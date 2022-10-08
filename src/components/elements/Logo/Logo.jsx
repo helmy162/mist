@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Logo.module.scss";
-import THEME from "../../../state/theme";
 import logo from "../../../assets/logo.png";
 
 export default ({ dark }) => (

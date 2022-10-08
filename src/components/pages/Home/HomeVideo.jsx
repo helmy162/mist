@@ -1,18 +1,9 @@
 import React, { Fragment } from "react";
 import {
-  Features,
-  Services,
-  Team,
-  Services2,
-  Reviews,
   VideoHeader,
-  Process,
 } from "../../widgets";
-import { useCustomState } from "../../../state/state";
 
 export default () => {
-  const state = useCustomState()[0];
-  
   return (
     <Fragment>
       <div  style={{display:'flex', flexDirection:'column', alignItems: 'center', justifyContent: 'center'}}>

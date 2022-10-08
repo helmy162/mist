@@ -6,7 +6,7 @@ import { Button } from "../../elements";
 
 export default (props) => {
   let sliderRef = useRef(null);
-
+  
   const settings = {
     dots: false,
     arrows: false,
@@ -14,6 +14,9 @@ export default (props) => {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+  };
+  const handleClick = () => {
+    return props.scrollto.current?.scrollIntoView({behavior: 'smooth'});
   };
   const item= props.data[props.teamID];
   const slideList = <article>
@@ -32,17 +35,17 @@ export default (props) => {
             style={{visibility: 'hidden'}}
           />
           <div className={styles.intro}>
-            <h1>{item.name}</h1>
-            <p style={{marginBottom:'10px'}}>{item.short}</p>
+            <h1 style={{fontSize:'6rem', marginBottom:'0px'}}>{item.name}</h1>
+            <p style={{fontSize:'1.5rem', marginBottom:'30px'}}>{item.short}</p>
             <div className={styles.intro} style={{maxWidth:'unset', marginBottom:'20px'}}>
               <div className="card2 user" style={{height:'fit-content', width:'100%'}}>
               <span className="inner-card-backface" style={{background:'transparent'}}>
                 <span className="flip-inner-card"></span>
               </span>
               <span className="inner-card" style={{background:'transparent', width:'100%'}}>
-                <div className="intro" style={{maxWidth:'unset', padding:'100px', borderRadius:'25px'}}>
+                <div className="intro" style={{maxWidth:'unset', padding:'50px', borderRadius:'25px'}}>
                   <div className="goals" style={{justifyContent:'center', flexDirection:'column'}}>
-                    <h1>Raid Times</h1>
+                    <h1 style={{fontSize:'4.5rem'}}>Raid Times</h1>
                     <ul>
                         { item.TimeRanges.map((item2, index2) => (
                           <li key={index2} style={{marginBottom:'20px'}}> {item2.time} </li>
@@ -54,9 +57,7 @@ export default (props) => {
               </span>
               </div>
             </div>
-            <Button to={"/apply/"} hoverType="solid-white-tb">
-              Apply Now
-            </Button>
+            <button onClick={() => handleClick()} className='updown'>Learn More</button>
           </div>
           <i
             className={"las la-long-arrow-alt-right"}

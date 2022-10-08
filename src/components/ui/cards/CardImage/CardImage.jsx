@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from "../../../elements";
-import THEME from "../../../../state/theme";
 import './CardImage.css';
 
 
@@ -23,8 +21,8 @@ export default ({ children, label, image, user ,layout = "grid", discord}) => {
 
     // Use this to create an angle. I have divided by 6 and 4 respectively so the effect looks good.
     // Changing these numbers will change the depth of the effect.
-    let calcAngleX = (x - halfWidth) / 6;
-    let calcAngleY = (y - halfHeight) / 14;
+    let calcAngleX = (x - halfWidth) / 36;
+    let calcAngleY = (y - halfHeight) / 34;
   
     let gX = (1 - (x / (halfWidth * 2))) * 100;
     let gY = (1 - (y / (halfHeight * 2))) * 100;
@@ -81,15 +79,11 @@ document.querySelectorAll('.card2').forEach(function(item) {
 })
 
   const [Users, fetchUsers] = useState([])
-  const [x, setX] = useState('');
   const getData = () => {
     fetch('https://raider.io/api/v1/characters/profile?region=us&realm=illidan&name=' + user +'&fields=mythic_plus_scores')
       .then((res) => res.json())
       .then((res) => {
-        console.log(Users)
         fetchUsers([...Users, res])
-        setX(res.class);
-        console.log(Users)
       })
   }
   
@@ -100,22 +94,22 @@ document.querySelectorAll('.card2').forEach(function(item) {
   return(
   <>
   {Users.map((item, i) => {
-    return <div class="card2 user">
-      <span class="inner-card-backface">
-        <span class="flip-inner-card">
+    return <div className="card2 user" key={i}>
+      <span className="inner-card-backface">
+        <span className="flip-inner-card">
           <h3>About</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet est nunc.</p>
-          <span class="unflip">Unflip</span>
+          <span className="unflip">Unflip</span>
         </span>
       </span>
-      <span class="inner-card">
-        <span class="user-details">
-          <span class="top-section">
-            <span class="flip">Flip</span>
+      <span className="inner-card">
+        <span className="user-details">
+          <span className="top-section">
+            <span className="flip">Flip</span>
           </span>
-          <span class="bottom-section">
-            <span class="name">{item.name}</span>
-            <span class="area"><span class="area-container" style={{color: 
+          <span className="bottom-section">
+            <span className="name">{item.name}</span>
+            <span className="area"><span className="area-container" style={{color: 
             item.class==='Death Knight'? '#C41E3A':
             item.class==='Demon Hunter'? '#A330C9':
             item.class==='Druid'? '#FF7D0A':
@@ -130,22 +124,22 @@ document.querySelectorAll('.card2').forEach(function(item) {
             item.class==='Warrior'? '#C79C6E':
             'white'}}>{item.class}</span></span>
             {discord?
-              <div class="flip-button buttons">
-                <div class="flip-button-inner">
-                  <div class="flip-button-front ">
-                    <button> <i class="lab la-discord" style={{fontSize:'24px', marginRight:'5px'}}></i> Discord</button>
+              <div className="flip-button buttons">
+                <div className="flip-button-inner">
+                  <div className="flip-button-front ">
+                    <button> <i className="lab la-discord" style={{fontSize:'24px', marginRight:'5px'}}></i> Discord</button>
                   </div>
-                  <div class="flip-button-back" style={{fontSize:'12px'}}>
+                  <div className="flip-button-back" style={{fontSize:'12px'}}>
                     <div> {discord}</div>
                   </div>
                 </div>
               </div>
             : null}
           </span>
-          <span class="user-icon"> <img src={require('./icons/'+item.class+'.png')}/>
+          <span className="user-icon"> <img src={require('./icons/'+item.class+'.png')} alt={item.class+' icon'}/>
           </span>
         </span>
-        <span class="glare"></span>
+        <span className="glare"></span>
       </span>
       </div>
     })}

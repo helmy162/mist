@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import Layout from "../Layout/Layout";
 import { Logo, Link, Subscribe } from "../../elements";
-import THEME from "../../../state/theme";
 import { useCustomState } from "../../../state/state";
 
 export default () => {

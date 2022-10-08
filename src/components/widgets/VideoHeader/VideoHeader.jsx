@@ -1,11 +1,9 @@
 import React, { useRef, useState } from "react";
-import { useCustomState } from "../../../state/state";
 import styles from "./VideoHeader.module.scss";
 import THEME from "../../../state/theme";
 import video from "./1.mp4";
 
 export default (props) => {
-  const state = useCustomState()[0];
   const [isPlay, setPlay] = useState(props.autoPlay);
   const ref = useRef();
   const ref2 = useRef();
