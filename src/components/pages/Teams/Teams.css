@@ -23,6 +23,10 @@
   border-bottom: 2px solid white;
   transform: rotate(-45deg);
 }
+.scroll:hover::before{
+  border-left: 2px solid rgb(34, 50, 97) !important;
+  border-bottom: 2px solid rgb(34, 50, 97) !important;
+}
 
 @keyframes down {
 	0% {
@@ -47,6 +51,36 @@
 		transform: translate(0);
 	}
 }
+
+@keyframes updown {
+	0% {
+		transform: translateY(5px);
+	}
+  50% {
+		transform: translateY(-5px);
+	}
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+.updown{
+  animation: updown 1.5s infinite;
+  -webkit-animation: updown 1.5s infinite;
+}
+@-webkit-keyframes updown {
+	0% {
+		transform: translateY(5px);
+	}
+  50% {
+		transform: translateY(-5px);
+	}
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+
 body{
   overflow: hidden;
 }
@@ -55,6 +89,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .goals ul li {
   border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -67,16 +102,22 @@ body{
 @media screen and (max-width: 1400px){
   .goals{
     flex-direction: column-reverse;
-    gap: 40px;
+    gap: 20px;
   }
 }
 @media screen and (max-width: 768px){
   .intro{
-    padding: 20px !important;
+    padding: 10px !important;
     font-size: 12px;
   }
   .intro h1{
     font-size: 24px !important;
+  }
+  .goals ul li{
+    font-size: 11px;
+  }
+  .card2 .inner-card{
+    padding: 5px;
   }
 }
 

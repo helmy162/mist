@@ -1,6 +1,6 @@
 {
-  "name": "cctv",
-  "version": "0.1.0",
+  "name": "mist",
+  "version": "1.0.0",
   "homepage": "https://helmy162.github.io/mist",
   "private": true,
   "dependencies": {

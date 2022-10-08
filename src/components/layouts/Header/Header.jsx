@@ -2,7 +2,6 @@ import React, { useState, useEffect, Fragment } from "react";
 import styles from "./Header.module.scss";
 import Layout from "../Layout/Layout";
 import { Button, Link, Logo } from "../../elements";
-import THEME from "../../../state/theme";
 import { useCustomState } from "../../../state/state";
 
 export default ({ data = [] }) => {

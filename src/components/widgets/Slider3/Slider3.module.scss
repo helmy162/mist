@@ -13,7 +13,68 @@
     line-height: 0;
     cursor: pointer;
     color: #fff;
+    margin: 0px 12vw 0px 0px;
   }
+
+  & i:nth-child(3){
+    margin: 0px 0px 0px 12vw;
+  }
+
+  & .leftarrow {
+    animation: left 1.5s infinite;
+	  -webkit-animation: left 1.5s infinite;
+  }
+  & .rightarrow {
+    animation: right 1.5s infinite;
+	  -webkit-animation: right 1.5s infinite;
+  }
+}
+@keyframes left {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateX(-15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@-webkit-keyframes left {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateX(-15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@keyframes right {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateX(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+
+@-webkit-keyframes right {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateX(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
 }
 
 .intro {
@@ -71,9 +132,11 @@
   .slide {
     height: 100vh;
 
-    // & i {
-    //   display: none;
-    // }
+    & i {
+      // display: none;
+      margin: 0px 0px 0px 0px !important;
+    }
+  
   }
 
   .intro {

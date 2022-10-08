@@ -1,6 +1,4 @@
 import Mock from "./mock";
-import icon from "../assets/logo.png";
-
 
 const database = {
   fast_links: [
@@ -9,20 +7,8 @@ const database = {
       url: "/home",
     },
     {
-      title: "Teams",
-      url: "/teams",
-    },
-    {
       title: "Apply",
       url: "/apply",
-    },
-    {
-      title: "Become a sponsor",
-      url: "/",
-    },
-    {
-      title: "Contact us",
-      url: "/contacts",
     },
   ],
   parallax: {
@@ -237,13 +223,13 @@ const database = {
       link: "/teams/twb",
       TimeRanges: [
         { 
-          time: 'TUESDAY: 9PM-12AM CST (SERVER TIME)'
+          time: 'TUESDAY: 9PM-12AM CST'
         },
         {
-          time: 'WEDNESDAY: 9PM-12AM CST (SERVER TIME)'
+          time: 'WEDNESDAY: 9PM-12AM CST'
         },
         {
-          time: 'THURSDAY: 9PM-12AM CST (SERVER TIME)'
+          time: 'THURSDAY: 9PM-12AM CST'
         }
       ],
     },
@@ -258,13 +244,13 @@ const database = {
       link: "/teams/tcc",
       TimeRanges: [
         { 
-          time: 'MONDAY: 10PM-1AM CST (SERVER TIME)'
+          time: 'MONDAY: 10PM-1AM CST'
         },
         {
-          time: 'TUESDAY: 10PM-1AM CST (SERVER TIME)'
+          time: 'TUESDAY: 10PM-1AM CST'
         },
         {
-          time: 'THURSDAY: 10PM-1AM CST (SERVER TIME)'
+          time: 'THURSDAY: 10PM-1AM CST'
         }
       ],
       
@@ -308,6 +294,11 @@ const database = {
       user: 'Mysticplay',
       officer: false,
     },
+    {
+      id: 6,
+      user: 'Dallasx',
+      officer: false,
+    }
   ],
   members2: [
     {

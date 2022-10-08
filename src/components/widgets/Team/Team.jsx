@@ -1,18 +1,13 @@
 import React from "react";
-import styles from "./Team.module.scss";
 import Layout from "../../layouts/Layout/Layout";
 import { CardImage } from "../../ui";
-import { Button } from "../../elements";
-import THEME from "../../../state/theme";
-import { useCustomState } from "../../../state/state";
 import logo from './logo.png';
 import './Team.css';
 export default ({ data = [] }) => {
-  const [state, actions] = useCustomState();
 
   const officerList = data.map((item, index) => (
       item.officer?
-        <article key={index} style={{flexBasis: 'calc(25% - 3rem)'}}>
+        <article key={index} style={{flexBasis: 'calc(25% - 3rem)', minWidth:'200px'}}>
           <CardImage image={item.class} label={logo} user={item.user} item={item} discord={item.discord}>
           </CardImage>
         </article>
@@ -21,7 +16,7 @@ export default ({ data = [] }) => {
 
   const teamList = data.map((item, index) => (
     !item.officer?
-        <article key={index} style={{flexBasis: 'calc(25% - 3rem)'}}>
+        <article key={index} style={{flexBasis: 'calc(25% - 3rem)', minWidth:'200px'}}>
           <CardImage image={item.class} label={logo} user={item.user} item={item} discord={item.discord}>
           </CardImage>
         </article>
@@ -44,7 +39,7 @@ export default ({ data = [] }) => {
           </div>
         </div>
         <div>
-          <h1> Members </h1>
+          <h1> Raiders </h1>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap', justifyContent:'center'}}>
             {teamList}
           </div>

@@ -27,9 +27,6 @@ export default ({ data = [] }) => {
           borderColor: THEME.color,
         }}
       >
-        <div className='extra' style={{ background: THEME.color }}>
-        </div>
-
         <div className='card'>
           <div className='icon'>
             <img src={item.icon} alt="card_icon" />
@@ -38,20 +35,21 @@ export default ({ data = [] }) => {
               color: THEME.color,
             }}
           >
-            {item.title}
+            {item.name}
           </h3>
           </div>
 
           <p>{item.description.replace(/^(.{60}[^\s]*).*/, "$1")}</p>
           <div className='button'>
             <Button
-              to={"/teams" + item.link}
-              type="solid-white-tb"
-              hoverType="solid-white-tb"
-              round
-              small
+              to={item.link}
+              type="solid-color-tb"
+              hoverType="solid-color-tb"
+              // round
               before="&#xf105;"
-            />
+            >
+              Learn more
+            </Button>
           </div>
         </div>
       </div>

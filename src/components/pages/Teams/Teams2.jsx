@@ -1,45 +1,31 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useRef} from "react";
 import {
-  Features,
-  Features2,
-  Subscribe,
-  Services,
   Team,
-  Services3,
-  Slider,
   Slider2,
-  Slider3,
-  Reviews,
-  ParallaxHeader,
-  Facts,
-  VideoHeader,
 } from "../../widgets";
 import { useCustomState } from "../../../state/state";
-import './Teams.css';
 import CastleCard from "../../widgets/CastleCard/CastleCard";
 import { Layout } from "../../layouts";
-import { CardImage } from "../../ui";
 
 export default ({ data = [] }) => {
   const state = useCustomState()[0];
+  const scrollToref = useRef(null);
 
   const axios = require('axios').default;
   const [mistRank, fetchData] = useState([]);
-  const [mistProgression, fetchData2] = useState([]);
+  const [mistProgress, fetchData2] = useState([]);
   const [nathria, setNathria] = useState([]);
   const [nathria2, setNathria2] = useState([]);
-  const [fatednathria, setFatedNathria] = useState([]);
-  const [fatednathria2, setFatedNathria2] = useState([]);
+  // const [fatednathria, setFatedNathria] = useState([]);
+  // const [fatednathria2, setFatedNathria2] = useState([]);
   const [sanctum, setSanctum] = useState([]);
   const [sanctum2, setSanctum2] = useState([]);
-  const [fatedsanctum, setFatedSanctum] = useState([]);
-  const [fatedsanctum2, setFatedSanctum2] = useState([]);
+  // const [fatedsanctum, setFatedSanctum] = useState([]);
+  // const [fatedsanctum2, setFatedSanctum2] = useState([]);
   const [sepulcher, setsepulcher] = useState([]);
   const [sepulcher2, setsepulcher2] = useState([]);
-  const [fatedsepulcher, setFatedSepulcher] = useState([]);
-  const [fatedsepulcher2, setFatedSepulcher2] = useState([]);
-  const [x, setX] = useState('');
-
+  // const [fatedsepulcher, setFatedSepulcher] = useState([]);
+  // const [fatedsepulcher2, setFatedSepulcher2] = useState([]);
 
   let calculateAngle = function(e, item, parent) {
     let dropShadowColor = `rgba(0, 0, 0, 0.3)`
@@ -59,8 +45,8 @@ export default ({ data = [] }) => {
 
     // Use this to create an angle. I have divided by 6 and 4 respectively so the effect looks good.
     // Changing these numbers will change the depth of the effect.
-    let calcAngleX = (x - halfWidth) / 16;
-    let calcAngleY = (y - halfHeight) / 14;
+    let calcAngleX = (x - halfWidth) / 36;
+    let calcAngleY = (y - halfHeight) / 34;
   
     let gX = (1 - (x / (halfWidth * 2))) * 100;
     let gY = (1 - (y / (halfHeight * 2))) * 100;
@@ -122,31 +108,30 @@ document.querySelectorAll('.card3').forEach(function(item) {
         .then(response => {
           fetchData(response.data);
           setNathria(response.data.raid_rankings["castle-nathria"].mythic);
-          setFatedNathria(response.data.raid_rankings["fated-castle-nathria"].mythic);
+          // setFatedNathria(response.data.raid_rankings["fated-castle-nathria"].mythic);
           setSanctum(response.data.raid_rankings["sanctum-of-domination"].mythic);
-          setFatedSanctum(response.data.raid_rankings["fated-sanctum-of-domination"].mythic);
+          // setFatedSanctum(response.data.raid_rankings["fated-sanctum-of-domination"].mythic);
           setsepulcher(response.data.raid_rankings["sepulcher-of-the-first-ones"].mythic);
-          setFatedSepulcher(response.data.raid_rankings["fated-sepulcher-of-the-first-ones"].mythic);
+          // setFatedSepulcher(response.data.raid_rankings["fated-sepulcher-of-the-first-ones"].mythic);
         });
     axios.get('https://raider.io/api/v1/guilds/profile?region=us&realm=illidan&name=mist&fields=raid_progression')
       .then(response => {
         fetchData2(response.data);
         setNathria2(response.data.raid_progression["castle-nathria"].summary);
-        setFatedNathria2(response.data.raid_progression["fated-castle-nathria"].summary);
+        // setFatedNathria2(response.data.raid_progression["fated-castle-nathria"].summary);
         setSanctum2(response.data.raid_progression["sanctum-of-domination"].summary);
-        setFatedSanctum2(response.data.raid_progression["fated-sanctum-of-domination"].summary);
+        // setFatedSanctum2(response.data.raid_progression["fated-sanctum-of-domination"].summary);
         setsepulcher2(response.data.raid_progression["sepulcher-of-the-first-ones"].summary);
-        setFatedSepulcher2(response.data.raid_progression["fated-sepulcher-of-the-first-ones"].summary);
+        // setFatedSepulcher2(response.data.raid_progression["fated-sepulcher-of-the-first-ones"].summary);
       });
 // empty dependency array means this effect will only run once (like componentDidMount in classes)
 }, []);
 
   const item = state.data.castles;
-  console.log(item);
 
   return (
     <Fragment>
-          <Slider2 data={state.data.teams} teamID={1} />
+          <Slider2 data={state.data.teams} teamID={1} scrollto={scrollToref}/>
           {/* <Team data={state.data.members} /> */}
           <div
             className="parallax"
@@ -156,7 +141,7 @@ document.querySelectorAll('.card3').forEach(function(item) {
               alignItems:'center',
             }}
           >
-            <section style={{height:'fit-content', flexDirection:'column', margin:'30px'}}>
+            <section style={{height:'fit-content', flexDirection:'column', margin:'30px'}} ref={scrollToref}>
               <h1>Our Progress</h1>
               <Layout col="3" style={{background:'rgba(0,0,0,0.4)', height:'fit-content', padding:'50px 0px', borderRadius:'50px'}}>
                 <CastleCard name={item[0].name} bg={item[0].bg} icon={item[0].icon} description={item[0].description} progress={nathria2} world={nathria.world} region={nathria.region} realm={nathria.realm}/>

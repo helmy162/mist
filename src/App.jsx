@@ -3,15 +3,6 @@ import { Switch, Route, Redirect} from "react-router-dom";
 
 import {
   Home,
-  HomeVideo,
-  About,
-  Services,
-  Portfolio,
-  Blog,
-  PostSingle,
-  ServiceSingle,
-  MemberCard,
-  PortfolioSingle,
   Teams1,
   Teams2,
   Apply
@@ -20,7 +11,6 @@ import { Header, Sidebar, Footer } from "./components/layouts";
 import { ModalForm } from "./components/ui";
 import { Spinner } from "./components/elements";
 import { useCustomState } from "./state/state";
-import { HomeTeams } from "./components/widgets";
 
 export default () => {
   const [state, actions] = useCustomState();
