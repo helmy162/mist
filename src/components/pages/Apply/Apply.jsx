@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef} from "react";
+import React, { cloneElement, Fragment, useEffect, useRef} from "react";
 import {
   Slider3,
 } from "../../widgets";
@@ -101,6 +101,65 @@ export default ({ data = [] }) => {
     //submit animation
     const submitButton = useRef();
     useEffect(() => {gsap.to(submitButton.current, {x: -mouseX/50, y: mouseY/30,});}, [mouseX, mouseY]);
+    
+    const [inputnumbers, setInputNumbers] = React.useState(1);
+
+    async function addInput(){
+      setInputNumbers(inputnumbers + 1);
+      let x = document.getElementById("characterInput"+(inputnumbers));
+      console.log(x);
+      let parent= x?.parentElement;
+      let y = x?.cloneNode();
+      y.id = "characterInput"+(inputnumbers+1);
+      var cln = x.childNodes[0].cloneNode(true);
+      cln.value = "";
+      let span = document.createElement("span");
+      span.classList.add("user-icon");
+      y.appendChild(cln);
+      y.appendChild(span);
+      span.style.display = "none";
+      let img = document.createElement("img");
+      span.appendChild(img);
+      cln.addEventListener("blur", async function secondFunction(e) {
+        
+        getvals(e.currentTarget.value).then(response => {
+        if(response.class){
+          span.style.display = "flex";
+          img.src = require('./icons/' + response.class+ '.png');
+        }
+        });
+      });
+      if(x)parent.appendChild(y);
+    }
+    function getvals(text){
+      return fetch('https://raider.io/api/v1/characters/profile?region=us&realm=illidan&name=' + text +'&fields=mythic_plus_scores',
+      {
+        method: "GET",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => response.json())
+      .then((responseData) => {
+        // console.log(responseData);
+        return responseData;
+      })
+      .catch(error => console.warn(error));
+    }
+    
+    const [Users, fetchUsers] = React.useState([]);
+    const getData = async(text, index) => {
+      Users.splice(index, 1);
+      await fetch('https://raider.io/api/v1/characters/profile?region=us&realm=illidan&name=' + text +'&fields=mythic_plus_scores')
+        .then((res) => res.json())
+        .then((res) => {
+            fetchUsers([...Users, res.class]);
+        })
+        .catch((err) => console.log(err))
+    }
+    
+    console.log(Users);
 
   return (
     <Fragment>
@@ -120,9 +179,21 @@ export default ({ data = [] }) => {
                 {/* <h1 style={{textAlign:'center'}}> Apply Now</h1> */}
                 <Form action="https://mistguild.pythonanywhere.com/applicant" method="POST" className="apply-form" style={{width:'80%', fontSize:'max(2vw, 36px)'}}>
                   <Form.Group className="form-group mb-3">
-                    <Form.Label>Character Name</Form.Label>
-                    <Form.Control name="character_name" type="text" />
+                    <Form.Label>Character Name {Users? Users.class : null}</Form.Label>
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'20px'}} id="characterInput1">
+                      <Form.Control name="character_name" type="text"  onBlur={(e) => getData(e.target.value, 0)}/>
+                      {
+                        Users[0]?
+                        <span className="user-icon"> <img src={require('./icons/' + Users[0] + '.png')} alt={'Name Change..'}/></span>
+                        :
+                        null
+                      }
+                        
+                    </div>
                   </Form.Group>
+                  <button onClick={() => addInput()} type="button">
+                      Click Me
+                  </button>
                   <Form.Group className="form-group mb-3">
                     <Form.Label>Discord Contact</Form.Label>
                     <Form.Control name="discord_contact" type="text"/>

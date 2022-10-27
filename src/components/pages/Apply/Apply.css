@@ -1,3 +1,27 @@
+.form-group .user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  width: 10%;
+  height: 67px;
+  box-shadow: 0 4px 9px rgb(0 0 0 / 20%);
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+  margin-left: 50px;
+  min-width: 67px;  
+  }
+.form-group  .user-icon img {
+  width: 75%;
+  
+  transform: scale(1);
+  transition: all 0.1s ease-out;
+  }
+  
+.form-group .user-icon img:hover {
+  transform: scale(1.08);
+}
+
 .apply-form{
   display: flex;
   justify-content: center;
@@ -11,7 +35,7 @@
   color: white;
   font-family: "Poppins";
   display: inline-block;
-  margin-bottom: 30px;
+  margin: 30px 0px;
 }
 .form-control:focus, .form-control:active{
   background-color: #223261;
@@ -26,6 +50,11 @@
   cursor: default !important;
 }
 @media screen and (max-width: 768px){
+  .user-icon{
+    margin-left: 10px;
+    min-width: 50px;
+    height: 50px;
+  }
   .apply-form{
     width: 100% !important;
   }
@@ -37,6 +66,7 @@
     font-size: 12px;
   }
 }
+
 .form-control, .form-select, .btn-primary{
   position: relative;
   width: 100%;
@@ -64,4 +94,7 @@
 }
 .form-group{
   width: 80%;
+}
+.form-control{
+  margin: 0px;
 }
