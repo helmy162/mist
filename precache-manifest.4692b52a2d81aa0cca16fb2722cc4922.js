@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "04ba1afc237763786efdf3f8c24fa324",
+    "revision": "11065f3495fe9775828535b15b7657b6",
     "url": "/mist/index.html"
   },
   {
-    "revision": "5a7e7fcc9a3e977026fd",
+    "revision": "aa793f55d8ee67214826",
     "url": "/mist/static/css/2.30d90719.chunk.css"
   },
   {
-    "revision": "2d1738dac01d3d9683d3",
-    "url": "/mist/static/css/main.ebcd9128.chunk.css"
+    "revision": "e60cebda551edd60786e",
+    "url": "/mist/static/css/main.dcc86366.chunk.css"
   },
   {
-    "revision": "5a7e7fcc9a3e977026fd",
-    "url": "/mist/static/js/2.a44fd440.chunk.js"
+    "revision": "aa793f55d8ee67214826",
+    "url": "/mist/static/js/2.fd41bdbe.chunk.js"
   },
   {
-    "revision": "75129714738f4169ac7237cdad171e35",
-    "url": "/mist/static/js/2.a44fd440.chunk.js.LICENSE.txt"
+    "revision": "4a9fa7b6faf743c03cddd241f8ad27ba",
+    "url": "/mist/static/js/2.fd41bdbe.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2d1738dac01d3d9683d3",
-    "url": "/mist/static/js/main.cbeb71b9.chunk.js"
+    "revision": "e60cebda551edd60786e",
+    "url": "/mist/static/js/main.4bea7a6b.chunk.js"
   },
   {
-    "revision": "be9a17a4c61b6a8d1a66",
-    "url": "/mist/static/js/runtime-main.b4986dc4.js"
+    "revision": "203494a4fa0207166f6d",
+    "url": "/mist/static/js/runtime-main.99bb7cef.js"
   },
   {
     "revision": "721a4298ed35420c7b7b3554bab92a1a",
